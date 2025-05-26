@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+ <head>
+  <meta charset="UTF-8">
+  <title>글쓰기</title>
+  <link rel="stylesheet" href="../css/write.css">
+</head>
+
+<body>
+  <form id="writeForm">
+    <h1>✏ Q&A</h1>
+    <input type="text" id="title" placeholder="제목" required><br>
+    <textarea id="content" placeholder="내용을 입력하세요" required></textarea><br>
+    <input type="text" id="writer" placeholder="작성자 (익명 가능)"><br>
+    <input type="file" id="imageInput" accept="image/*"><br>
+ 
+  <select id="category" required>
+    <option value="">카테고리 선택</option>
+    <option value="소프트웨어">소프트웨어</option>
+    <option value="데이터">데이터</option>
+    <option value="네트워크/보안">네트워크/보안</option>
+    <option value="인공지능">인공지능</option>
+  </select><br>
+  <button onclick="location.href='index.html'">← 돌아가기</button>
+  <button type="submit">등록</button> 
+</form>
+
+  <script>
+    function escapeHTML(str) {
+      return str.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function toBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    document.getElementById('writeForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const title = escapeHTML(document.getElementById('title').value);
+      const content = escapeHTML(document.getElementById('content').value);
+      const writer = escapeHTML(document.getElementById('writer').value) || "익명";
+      const category = document.getElementById('category').value;
+      const imageFile = document.getElementById('imageInput').files[0];
+
+      let imageBase64 = "";
+      if (imageFile) {
+        imageBase64 = await toBase64(imageFile);
+      }
+
+      const post = {
+        title,
+        content,
+        writer,
+        category,
+        image: imageBase64,
+        time: new Date().toLocaleString()
+      };
+
+      let posts = JSON.parse(localStorage.getItem('posts')) || [];
+      posts.unshift(post);
+      localStorage.setItem('posts', JSON.stringify(posts));
+
+      window.location.href = 'index.html';
+    });
+  </script>
+
+</body>
+
+</html>

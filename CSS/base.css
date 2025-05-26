@@ -1,0 +1,28 @@
+/* Reset 및 공통 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f6f7f9;
+    color: #333;
+  }
+  
+  /* 공통 버튼 스타일 */
+  button {
+    background-color: #007acc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  button:hover {
+    background-color: #005fa3;
+  }
+  

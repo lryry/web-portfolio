@@ -1,0 +1,445 @@
+header {
+  background-color: #4aa8d8;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+header h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+header .logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* 게시글 카드 */
+.post-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: 0.2s ease;
+}
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.post-card h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.post-card .info {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+/* 카테고리 버튼 */
+.category-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 0;
+  background-color: #e9f4fb;
+  border-bottom: 1px solid #d0e3ef;
+}
+.category-btn {
+  background-color: #007acc;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+
+}
+.category-btn:hover {
+  background-color: #005fa3;
+}
+.category-btn.active {
+  background-color: #004d80;
+}
+
+
+
+/* 사이트 소개 */
+.intro {
+  background: #f3f8ff;
+  border: 2.5px dashed #aee6ff;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(174,230,255,0.10);
+  padding: 10px 38px 8px 38px;    /* 좌우 넓게, 상하 얇게 */
+  margin: 18px auto 14px auto;
+  max-width: 700px;               /* 가로 길이 넓게 */
+  min-height: 48px;               /* 너무 낮지 않게 최소 높이 */
+  position: relative;
+  text-align: center;
+  font-family: 'Noto Sans KR', '맑은 고딕', Arial, sans-serif;
+  transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro::before {
+  content: "✨";
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  font-size: 1.5rem;
+}
+
+.intro::after {
+  content: "💬";
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  font-size: 1.5rem;
+}
+
+.intro h2 {
+  color: #00b8d9;
+  font-size: 1.18rem;
+  margin-bottom: 4px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.intro p {
+  color: #3a4a5a;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+  word-break: keep-all;
+}
+
+.intro:hover {
+  box-shadow: 0 6px 24px rgba(0,180,220,0.13);
+  background: #e6f7ff;
+}
+
+/* 공지사항 메모장 스타일 */
+.notices {
+  background: #e3f3ff;           /* 밝은 하늘색 배경 */
+  border: 1.5px solid #61a1fb;   /* 기존 테두리 유지 */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(83, 175, 208, 0.08);
+  padding: 24px 28px 20px 38px;
+  margin: 32px auto 24px auto;
+  max-width: 700px;
+  position: relative;
+}
+
+.notices::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  bottom: 18px;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #0654f0 0 8px,
+    transparent 8px 16px
+  );
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.notices h2 {
+  font-size: 1.2rem;
+  color: #fb3509;
+  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.notice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notice-list li::before {
+  content: "📌";
+  margin-right: 8px;
+  color: #007acc;                /* 파란 계열로 변경 */
+}
+
+.notice-list li {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  padding-left: 0;
+  color: #007acc;                /* 파란 계열로 변경 */
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.notice-list a {
+  color: #005fa3;                /* 링크도 파란 계열 */
+  text-decoration: underline dotted;
+  transition: color 0.2s;
+}
+
+.notice-list a:hover {
+  color: #0099ff;
+  text-decoration: underline solid;
+}
+
+/* 푸터 */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #999;
+}
+body {
+  background-image: url('c:\Users\ryuji\OneDrive\바탕 화면\web\pngegg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Q&A 미리보기 */
+.qna-preview {
+  background: #f6faff;
+  border: 2px solid #cbe7ff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,180,255,0.07);
+  padding: 22px 28px 18px 28px;
+  margin: 28px auto 28px auto;
+  max-width: 700px;
+}
+
+.qna-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 카드 사이 간격 */
+}
+.qna-list li {
+  background: #fff;
+  border: 1.5px solid #cbe7ff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,180,255,0.06);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0; /* gap으로 대체 */
+  transition: box-shadow 0.18s, border 0.18s;
+}
+.qna-list li:hover {
+  box-shadow: 0 4px 16px rgba(0,180,255,0.13);
+  border-color: #7ee8fa;
+  background: #fafdff;
+}
+.qna-list a {
+  color: #007acc;
+  text-decoration: none;  
+  font-weight: 500;
+  font-size: 1.04rem;
+  transition: color 0.2s;
+}
+.qna-list a:hover {
+  color: #005fa3;
+  text-decoration: underline; 
+}
+.qna-writer {
+  color: #888;
+  font-size: 0.93rem;
+  margin-left: 16px;
+  flex-shrink: 0;
+}
+/* Q&A 카테고리 드롭다운(탭) 스타일 */
+.qna-header {
+  display: flex;
+  align-items: center;
+}
+
+.qna-header h2 {
+  margin-right: 18px;            /* 드롭다운과 간격 */
+  color: #0099cc;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-align: left;              /* 왼쪽 정렬 */
+}
+
+
+.qna-header select#category {
+  background: #e9f4fb;
+  color: #007acc;
+  border: 1.5px solid #b7e0ff;
+  border-radius: 18px;
+  padding: 7px 18px 7px 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  margin-left: 439px;
+  margin-bottom: 15px;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,180,255,0.07);
+  cursor: pointer;
+}
+
+.qna-header select#category:focus {
+  border: 1.5px solid #0099cc;
+  box-shadow: 0 0 0 2px #b7e0ff;
+  background: #fafdff;
+}
+
+.qna-header option {
+  color: #007acc;
+  font-weight: 500;
+}
+/* 추천 도서 - div 구조용 카드형 디자인 */
+.recommended-books h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.book-item {
+  background: #fff;
+  border: 1.5px solid #b7e0ff;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,180,255,0.10);
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 12px 0;
+  transition: box-shadow 0.18s, border 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-item:hover {
+  box-shadow: 0 6px 24px rgba(0,180,255,0.16);
+  border-color: #7ee8fa;
+  background: #fafdff;
+}
+
+.book-item img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  margin-bottom: 14px;
+  background: #eaf6ff;
+}
+
+.book-item p {
+  color: #007acc;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 6px;
+  margin-top: 2px;
+}
+
+.book-item strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #222;
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .book-list {
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+  }
+  .book-item {
+    width: 90vw;
+    max-width: 320px;
+  }
+  .book-item img {
+    height: 140px;
+  }
+}
+.quote-box {
+  position: fixed;
+  top: 160px;
+  left: 35px;
+  width: 330px;
+  background: #fffbe7;
+  border: 1.5px solid #ffe299;
+  border-radius: 6px;
+  box-shadow: 4px 4px 16px rgba(255, 210, 80, 0.13), 0 1px 0 #ffe299 inset;
+  padding: 20px 18px 18px 28px;
+  font-size: 1.08rem;
+  color: #b48a00;
+  text-align: left;
+  font-family: 'Noto Sans KR', '맑은 고딕', Arial, sans-serif;
+  font-weight: 500;
+  z-index: 200;
+  border-bottom: 8px solid #ffe299;
+}
+
+.quote-box::before {
+  font-size: 1.3rem;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.quote-author {
+  margin-top: 10px;
+  color: #b48a00;
+  font-size: 1em;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 1px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .quote-box {
+    position: static;
+    width: auto;
+    margin: 24px auto 18px auto;
+    max-width: 600px;
+    left: auto;
+    top: auto;
+    transform: none;
+    border-bottom: 8px solid #ffe299;
+  }
+}

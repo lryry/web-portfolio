@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>게시글 보기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>게시글 보기</h1>
+  <div id="postView"></div>
+  <button onclick="location.href='index.html'">← 목록으로</button>
+  <button id="deleteBtn" style="margin-left:10px; color: white; background-color: red;">삭제</button>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const index = urlParams.get('index');
+    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+    if (posts[index]) {
+      const post = posts[index];
+      let html = `
+        <h2>${post.title}</h2>
+        <p><strong>작성자:</strong> ${post.writer}</p>
+        <p><strong>작성 시간:</strong> ${post.time}</p>
+        <hr />
+        <p>${post.content.replace(/\n/g, "<br>")}</p>
+      `;
+      if (post.image) {
+        html += `<img src="${post.image}" alt="첨부 이미지" style="max-width: 100%; margin-top: 10px;" />`;
+      }
+      document.getElementById('postView').innerHTML = html;
+    } else {
+      document.getElementById('postView').innerHTML = `<p>해당 글이 존재하지 않습니다.</p>`;
+      // 삭제 버튼 숨기기
+      document.getElementById('deleteBtn').style.display = 'none';
+    }
+
+    // 삭제 버튼 이벤트
+    document.getElementById('deleteBtn').addEventListener('click', () => {
+      if (confirm('정말 이 게시글을 삭제하시겠습니까?')) {
+        posts.splice(index, 1); // 해당 인덱스 게시글 삭제
+        localStorage.setItem('posts', JSON.stringify(posts)); // 업데이트 저장
+        alert('게시글이 삭제되었습니다.');
+        location.href = 'index.html'; // 목록으로 이동
+      }
+    });
+  </script>
+</body>
+</html>
+
