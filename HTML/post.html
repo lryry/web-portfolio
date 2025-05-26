@@ -38,10 +38,10 @@
     // 삭제 버튼 이벤트
     document.getElementById('deleteBtn').addEventListener('click', () => {
       if (confirm('정말 이 게시글을 삭제하시겠습니까?')) {
-        posts.splice(index, 1); // 해당 인덱스 게시글 삭제
-        localStorage.setItem('posts', JSON.stringify(posts)); // 업데이트 저장
+        posts.splice(index, 1); 
+        localStorage.setItem('posts', JSON.stringify(posts)); 
         alert('게시글이 삭제되었습니다.');
-        location.href = 'index.html'; // 목록으로 이동
+        location.href = 'index.html'; 
       }
     });
   </script>

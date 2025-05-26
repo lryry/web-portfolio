@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
       `).join('');
     }
   }
-
-  // 오늘의 명언 랜덤 표시
   const quoteBox = document.getElementById('quoteBox');
   if (quoteBox) {
     const quotes = [
