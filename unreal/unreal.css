@@ -1,0 +1,95 @@
+            body {
+                margin: 0;
+            }
+
+            p {
+                font-size: 20px;
+                line-height: 1.5;
+                margin: 0;
+                text-align: center;
+            }
+
+            a {
+                color: brown;
+                text-decoration: none;
+            }
+
+            strong{
+                color:#f79f47
+            }
+
+            h1 {
+                font-size: 45px;
+                text-align: center;
+                border-bottom: 2px solid black;
+                margin: 0;
+                padding: 40px;
+                background-color: white;
+                color: black;
+            }
+
+            h2 {
+                font-size: 30px;
+                text-align: center;
+            }
+
+            ol {
+                font-size: 20px;
+                border-right: 2px solid black;
+                width: 220px;
+                margin: 0;
+                padding: 20px;
+                background-color: white;
+                color: black;
+            }
+
+            #grid > ol {
+                position: sticky;
+                top: 0; /* 상단에 딱 붙게 */
+                align-self: flex-start;
+                z-index: 10;
+                background-color: white;
+                height: 100vh; /* 선이 화면 전체 높이에 맞게 */
+                box-sizing: border-box; /* 패딩 포함 */
+            }
+
+            #grid ol {
+                padding-left: 50px;
+            }
+
+            #grid {
+                display: grid;
+                grid-template-columns: 250px 1fr;
+                min-height: 100vh;
+            }
+
+            #grid #article {
+                padding-right: 10px;
+            }
+
+            .article-img-left {
+                float: left;
+                margin: 0 0 10px 10px;
+                width: 30%;
+            }
+
+            .article-img-right {
+                float: right;
+                margin: 0 0 10px 10px;
+                width: 30%;
+            }
+
+            .divider {
+                border: 10px 0 0 0;
+                border-top: 2px solid #222;
+                margin: 20px 0;
+            }
+
+            .main-link {
+                color: #edb073;
+                text-decoration: underline;
+            }
+
+            .gif-img {
+                width: 30%;
+            }

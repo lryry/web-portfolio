@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB_Project_2301450</title>
+    <meta name="creator" content="이수현" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/6d7cd68fbb.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="main.css">
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header_logo">
+        <h1 class="header_logo_title"><a href="#main">이수현</a></h1>
+      </div>
+      <nav class="header_nav_bar">
+        <ul class="header_menu">
+          <li><a class="header_menu_item" href="#main">Home</a></li>
+          <li><a class="header_menu_item" href="#about">About</a></li>
+          <li><a class="header_menu_item" href="#performance">Performance</a></li>
+          <li><a class="header_menu_item" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="main">
+        <div class="main_div">
+          <h2 class="main_title">
+            안녕하세요<br />
+            저는 <strong class="main_title--strong">Lee SuHyeon</strong> 입니다.
+          </h2>
+          <a class="main_contact" href="#contact">Contact me</a>
+        </div>
+      </section>
+
+      <section id="about" class="section max-container">
+        <h2 class="title">About me</h2>
+        <div class="about-desc">나에 대해서</div>
+        <div class="about-hopy-title">반려견 : HOPY💕</div>
+        <div class="about-images">
+          <img src="img/hopy_1.png" alt="hopy_1">
+          <img src="img/hopy_2.png" alt="hopy_2">
+          <img src="img/hopy_3.png" alt="hopy_3">
+        </div>
+        <br><br><br><br><br>
+        <div class="hobbies">
+          <!-- 음악 (왼쪽) -->
+          <div class="hobby-row">
+            <div class="hobby">
+              <i class="fa-solid fa-music hobby_icon"></i>
+              <p class="hobby_title">음악</p>
+              <p class="hobby_content">노래 듣는 것을 좋아합니다.<br>HONNE - Day 1 ◑</p>
+            </div>
+            <div class="hobby-video">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/47dzrigOXX4?si=4eNnC0UaUutZ93Aa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+          <br><br>
+          <!-- 영화 (정반대 배치) -->
+          <div class="hobby-row" style="flex-direction: row-reverse;">
+            <div class="hobby">
+              <i class="fa-solid fa-video hobby_icon"></i>
+              <p class="hobby_title">예능 프로그램</p>
+              <p class="hobby_content">추리나 코믹한 예능 프로그램을<br>좋아합니다.<br>데블스플랜2</p>
+            </div>
+            <div class="hobby-video movie-video">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/HIHlu6-csZg?si=nM1OjqAqlfQ59fap" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About과 Performance 구분선 추가 -->
+      <hr style="border: 10px;; border-top:2px solid #222; margin: 20px;;">
+
+      <!-- Performance 섹션 추가 -->
+      <section id="performance" class="section max-container">
+        <h2 class="title">Performance</h2>
+        <div class="performance-content">
+          <div class="performance-title">주요 활동 및 성과</div><br>
+          <ul class="performance-list">
+            <li>
+              <a href="unity/unity_1.html" target="_blank" title="유니티를 활용한 챗봇 만들기 및 ChatGPT 연동하기 캠프 블로그">1 : 유니티를 활용한 챗봇 만들기 및 ChatGPT 연동하기 캠프 (2024.01.03)</a>
+              <img src="img/performance_1.png" alt="performance_1">
+            </li>
+            <li>
+              <a href="unreal/unreal_1.html" target="_blank" title="언리얼기반 콘텐츠 제작과정 블로그">2 : 언리얼기반 콘텐츠 제작 과정 (2025.01.06)</a>
+              <img src="img/performance_2.png" alt="performance_2">
+            </li>
+            <li>
+              <a href="aiExpo/ai_1.html" target="_blank" title="AI EXPO KOREA 2025 국제인공지능대전 블로그">3 : AI EXPO KOREA 2025 국제인공지능대전 (2025.05.16)</a>
+              <img src="img/performance_3.png" alt="performance_3">
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <aside>
+        <a class="arrow-up-circle" href="#main" title="go to the top">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </aside>
+    </main>
+
+    <footer id="contact" class="section">
+      <div class="max-container">
+        <h2 class="title">Contact Info.</h2>
+        <p class="description">leesu041104@gmail.com</p>
+        <hr class="contact-indent" />
+        <p>ⓒleesu041104 - All rights reserved</p>
+      </div>
+    </footer>
+
+    <br><br><br><br>
+    <div id="disqus_thread"></div>
+      <script>
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+          /*
+          var disqus_config = function () {
+          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          */
+          (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://web-project-10.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+          })();
+      </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </body>
+</html>

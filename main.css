@@ -1,0 +1,268 @@
+      :root {
+        --size-max-width: 1200px;           /* 최대 너비 지정 (전체 레이아웃 제한용) */
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Nanum Gothic", sans-serif;
+        margin: 0;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color:#D4A373;
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+      }
+
+      .section {
+        padding: 3rem;
+        text-align: center;
+      }
+      .max-container {
+        max-width: var(--size-max-width);
+        margin: auto;
+      }
+      .title {
+        font-size: 2.5rem;
+        margin: 1rem;
+      }
+      .description {
+        font-size: 1.5rem;
+        margin: 0.5rem 0;
+      }
+
+      .header {
+        background-color: transparent;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+        transition: all 300ms ease;
+      }
+      .header-show {
+        background-color: #2a2a2a;
+        padding: 0.000001rem;
+      }
+      .header_logo_title a {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .header_menu {
+        display: flex;
+      }
+      .header_menu_item {
+        padding: 10px 20px;
+        border-bottom: 3rem solid transparent;
+      }
+      .header_menu_item:hover {
+        border-bottom:1px solid #F78535;
+
+      }
+
+      #main {
+        background-color: #2a2a2a;
+        color : #9A8B80;
+        padding: 7rem 1rem 15rem;
+        text-align: center;
+      }
+      .main_div {
+        margin-top: 120px;
+      }
+      .main_title {
+        font-size: 4rem;
+        margin: 1rem 0;
+      }
+      .main_title--strong {
+        color:#FFFFFF
+      }
+      .main_contact {
+        display: inline-block;
+        background-color:#9A8B80;
+        color:#FFFFFF;
+        margin: 2rem;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+        border-radius: 4px;
+      }
+      .main_contact:hover {
+        background-color: transparent;
+      }
+
+      .hobbies {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      .about-images {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      .about-images img {
+        width: 250px;
+        height: auto;
+        border-radius: 12px;
+      }
+      .about-hopy-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .about-desc {
+        font-size: 1.2rem;
+        color:#9A8B80;
+        font-weight: bold;
+        margin-bottom: 2rem;
+      }
+
+      .hobby-row {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2rem;
+        width: 100%;
+      }
+      .hobby-row.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .hobby {
+        background-color:#9A8B80;
+        padding: 2rem 1rem;
+        color:#ffffff;
+        border-radius: 1rem;
+        cursor: default;
+        box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
+        width: 300px;
+        min-width: 300px;
+        box-sizing: border-box;
+      }
+
+      .hobby_icon {
+        font-size: 7rem;
+        margin: 0.5rem 0;
+        color:#F78535;
+        transform: scale(0.5);
+      }
+      .hobby:hover .hobby_icon {
+        transform: scale(1.3);
+        transition: all 300ms ease;
+      }
+
+      .hobby_title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      .hobby_content {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        font-style: italic;
+        color:white;
+      }
+
+      .hobby-video {
+        flex: 1;
+        max-width: 560px;
+        min-width: 300px;
+        margin-left:10rem;
+        box-sizing: border-box;
+      }
+      .hobby-row[style*="row-reverse"] .movie-video {
+        margin-right: 10rem;
+        margin-left: 0;
+        max-width: 560px;
+        min-width: 300px;
+        box-sizing: border-box;
+      }
+
+      .performance-content {
+        margin-top: 2rem;
+      }
+      .performance-title {
+        font-size: 1.2rem;
+        color : #9A8B80;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+      }
+      .performance-list {
+        font-size: 1.15rem;
+        text-align: center;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 3.5rem;
+      }
+      .performance-list li {
+        margin-bottom: 0;
+        font-weight: bold;
+        background: #232323;
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        flex: 1 1 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 260px;
+        max-width: 360px;
+        font-size: 1.15rem;
+      }
+      .performance-list img {
+        width: 100%;
+        margin-top: 1rem;
+        border-radius: 14px;
+      }
+      @media (max-width: 1200px) {
+        .performance-list {
+          gap: 2rem;
+        }
+        .performance-list li {
+          min-width: 200px;
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 900px) {
+        .performance-list {
+          flex-direction: column;
+          gap: 2rem;
+        }
+        .performance-list li {
+          max-width: 100%;
+        }
+      }
+
+      .arrow-up-circle {
+        position: fixed;
+        bottom: 0.5rem;
+        right: 0.5rem;
+        font-size: 1.5rem;
+        color:#F78535
+      }
+
+      #contact {
+        background-color: #2a2a2a;
+        color: #fff;
+        padding-top: 30rem;
+      }
+      .contact-indent {
+        margin: 1rem;
+      }
