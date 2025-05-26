@@ -1,5 +1,17 @@
-            body {
+body {
                 margin: 0;
+                /* 화면 전체를 중앙에 고정 */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 1500px; /* 최소 너비 고정 */
+                background: #fff;
+            }
+
+            #main-container {
+                width: 1500px; /* 고정 너비 */
+                min-width: 1500px;
+                max-width: 1500px;
             }
 
             p {
@@ -45,12 +57,12 @@
 
             #grid > ol {
                 position: sticky;
-                top: 0; /* 상단에 딱 붙게 */
+                top: 0;
                 align-self: flex-start;
                 z-index: 10;
                 background-color: white;
-                height: 100vh; /* 선이 화면 전체 높이에 맞게 */
-                box-sizing: border-box; /* 패딩 포함 */
+                height: 100vh;
+                box-sizing: border-box;
             }
 
             #grid ol {
@@ -61,6 +73,10 @@
                 display: grid;
                 grid-template-columns: 250px 1fr;
                 min-height: 100vh;
+                width: 100%;
+                max-width: 1500px;
+                min-width: 1500px;
+                margin: 0 auto;
             }
 
             #grid #article {
@@ -70,13 +86,17 @@
             .article-img-left {
                 float: left;
                 margin: 0 0 10px 10px;
-                width: 30%;
+                width: 350px; /* 고정 크기 */
+                min-width: 350px;
+                max-width: 350px;
             }
 
             .article-img-right {
                 float: right;
                 margin: 0 0 10px 10px;
-                width: 30%;
+                width: 350px; /* 고정 크기 */
+                min-width: 350px;
+                max-width: 350px;
             }
 
             .divider {
@@ -91,5 +111,24 @@
             }
 
             .gif-img {
-                width: 30%;
+                width: 350px;
+                min-width: 350px;
+                max-width: 350px;
+            }
+
+            /* 메인 이미지 고정 */
+            .main-img {
+                width: 1300px;
+                min-width: 1300px;
+                max-width: 1300px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            #disqus_thread {
+                display: block !important;
+                min-height: 300px;
+                width: 100%;
+                background: #fff;
+                margin: 0 auto;
             }
