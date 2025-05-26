@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wdth,wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <input type="checkbox" id="toggle-book" hidden>
+  <input type="checkbox" id="toggle-back" hidden>
+
+  <div class="background"></div>
+
+  <!-- 앞표지 -->
+  <div class="book-container">
+    <div class="book closed">
+      <div class="book-title">Portfolio</div>
+      <label for="toggle-book" class="book-cover-button">
+        <div class="button-circle"></div>
+      </label>
+      <div class="page-number">No.1</div>
+    </div>
+  </div>
+
+  <!-- 뒤표지 -->
+  <div class="book-back-container">
+    <div class="book-back closed hidden"></div>
+  </div>
+
+  <!-- 펼쳐진 책 -->
+  <div class="book open">
+    <div class="click-zone click-left" onclick="goToPage(-1)"></div>
+    <div class="click-zone click-right" onclick="goToPage(1)"></div>
+    <iframe id="book-page" src="1.html"></iframe>
+  </div>
+
+  <script>
+    let currentPage = 1;
+    const maxPage = 4;
+    const minPage = 1;
+
+    const toggleBook = document.getElementById("toggle-book");
+    const toggleBack = document.getElementById("toggle-back");
+    const bookPage = document.getElementById("book-page");
+    const backCover = document.querySelector(".book-back.closed");
+
+    function goToPage(offset) {
+      const nextPage = currentPage + offset;
+
+      if (nextPage < minPage) {
+        toggleBook.checked = false;
+        currentPage = minPage;
+        bookPage.src = `${currentPage}.html`;
+        return;
+      }
+
+      if (nextPage > maxPage) {
+        toggleBook.checked = false;
+        toggleBack.checked = false;
+        backCover.classList.remove("hidden");
+        return;
+      }
+
+      currentPage = nextPage;
+      bookPage.src = `${currentPage}.html`;
+    }
+
+    toggleBook.addEventListener("change", () => {
+      if (toggleBook.checked) {
+        backCover.classList.add("hidden");
+        bookPage.src = `${currentPage}.html`;
+      }
+    });
+
+    toggleBack.addEventListener("change", () => {
+      if (toggleBack.checked) {
+        backCover.classList.add("hidden");
+        toggleBook.checked = true;
+      }
+    });
+  </script>
+</body>
+</html>

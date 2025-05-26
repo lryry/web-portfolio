@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Serif KR', serif;
+  background: #fffef7; /* 페이지 배경색 */
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2px; /* 가운데 선 간격 최소화 */
+}
+
+.page {
+  flex: 1;
+  padding: 40px 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  background: transparent; /* 추가된 배경 제거 */
+  box-shadow: none;        /* 그림자 제거 */
+}
+
+.label {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+}
+
+.divider {
+  width: 1px;
+  background: #ccc;
+}
+
+.content {
+  margin-top: 70px;
+  text-align: center;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.caption {
+  font-weight: bold;
+  font-size: 17px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.pagenum {
+  position: absolute;
+  bottom: 10px;
+  font-size: 13px;
+  color: #555;
+}
+
+.left .pagenum {
+  left: 10px;
+}
+
+.right .pagenum {
+  right: 10px;
+}
