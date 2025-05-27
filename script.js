@@ -1,4 +1,4 @@
-// 최신 Q&A 미리보기(qna-list) 영역에 최신 5개 Q&A 출력
+// 최신 Q&A 미리보기(qna-list)
 document.addEventListener('DOMContentLoaded', function() {
   const qnaList = document.querySelector('.qna-list');
   if (qnaList) {
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
       `).join('');
     }
   }
+  /*명언*/
   const quoteBox = document.getElementById('quoteBox');
   if (quoteBox) {
     const quotes = [
