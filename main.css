@@ -1,7 +1,6 @@
       :root {
         --size-max-width: 1200px;           /* 최대 너비 지정 (전체 레이아웃 제한용) */
       }
-
       * {
         box-sizing: border-box;
       }
@@ -23,6 +22,7 @@
         outline: none;
       }
 
+      /* 공통 레이아웃 요소 */
       .section {
         padding: 3rem;
         text-align: center;
@@ -40,6 +40,7 @@
         margin: 0.5rem 0;
       }
 
+      /* 헤더 영역 */
       .header {
         background-color: transparent;
         position: fixed;
@@ -72,6 +73,7 @@
 
       }
 
+      /* 메인 영역 */
       #main {
         background-color: #2a2a2a;
         color : #9A8B80;
@@ -101,6 +103,7 @@
         background-color: transparent;
       }
 
+      /* 나에 대하여 영역 */
       .hobbies {
         display: flex;
         flex-direction: column;
@@ -192,6 +195,7 @@
         box-sizing: border-box;
       }
 
+      /* 성과 영역 */
       .performance-content {
         margin-top: 2rem;
       }
@@ -231,6 +235,8 @@
         margin-top: 1rem;
         border-radius: 14px;
       }
+
+      /* 반응형 미디어 쿼리 */
       @media (max-width: 1200px) {
         .performance-list {
           gap: 2rem;
@@ -250,6 +256,7 @@
         }
       }
 
+      /* 상단 이동 화살표 */
       .arrow-up-circle {
         position: fixed;
         bottom: 0.5rem;
@@ -258,6 +265,7 @@
         color:#F78535
       }
 
+      /* 연락 영역 */
       #contact {
         background-color: #2a2a2a;
         color: #fff;
