@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>음악</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* 왼쪽 사이드바 스타일 */
+    .sidebar {
+      width: 250px;
+      background-color: #222;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: yellow;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #333;
+      color: orange;
+    }
+
+    /* 검색바 스타일 */
+    .sidebar input {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+    }
+
+    .sidebar input::placeholder {
+      color: #aaa;
+    }
+
+    /* 상단 바 스타일 */
+    .navbar {
+      width: calc(100%);
+      background-color: #222;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 메인 콘텐츠 스타일 */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .content h1 {
+      font-size: 28px;
+      margin: 20px;
+    }
+
+    .albums {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .album-card {
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .album-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .album-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .album-card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .album-card p {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* 재생 버튼 스타일 */
+    .control-button {
+      background-color: transparent; /* 박스 제거 */
+      color: rgb(132, 130, 130);
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    .control-button:hover {
+      color: white; /* 밝아짐 효과 */
+      transform: scale(1.2);
+    }
+
+    .control-button:active {
+      transform: scale(1.1);
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+    }
+
+    /* 둥근 직사각형 스타일 */
+    .rounded-box {
+      display: flex;
+      width: 500px;
+      height: 50px;
+      background-color: #333;
+      border-radius: 10px;
+      overflow: hidden; /* 내부 요소가 둥근 모서리를 벗어나지 않도록 */
+      position: relative;
+    }
+
+    .rounded-box .highlight {
+      flex: 1; /* 1의 영역 */
+      background-color: #555; /* 더 진한 색상 */
+      position: relative;
+      cursor: pointer; /* 클릭 가능 표시 */
+    }
+
+    .rounded-box:hover .highlight::after {
+      content: '↸'; /* 화살표 표시 */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: white;
+    }
+
+    .rounded-box .remaining {
+      flex: 9; /* 9의 영역 */
+      background-color: #333; /* 기존 색상 */
+    }
+
+    /* 사운드 바 스타일 */
+    .sound-bar {
+      display: flex;
+      align-items: center;
+      width: 150px;
+      margin-left: 20px;
+    }
+
+    .sound-slider {
+      width: 70px;
+      -webkit-appearance: none; /* 벤더 접두사 */
+      appearance: none; /* 표준 속성 */
+      background: #444;
+      height: 2px;
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .sound-slider:hover {
+      background: #666;
+    }
+
+    .sound-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none; /* 표준 속성 */
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .sound-slider::-webkit-slider-thumb:hover {
+      background: white;
+    }
+
+    .sidebar-select {
+      width: 80%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar-select:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <!-- 왼쪽 사이드바 -->
+  <div class="sidebar">
+    <div class="logo">음악</div>
+    <input type="text" placeholder="검색">
+    <a href="#" onclick="showSection('home')">홈</a>
+    <a href="#" onclick="showSection('music')">새로운 음악</a>
+    <a href="#" onclick="showSection('radio')">라디오</a>
+    <a href="#" onclick="showSection('box')">보관함</a>
+    <a href="#" onclick="showSection('playlist')">플레이리스트</a>
+    <a href="main.html">메인 화면</a>
+  </div>
+
+  <!-- 메인 콘텐츠 -->
+  <div class="content">
+    <!-- 상단 바 -->
+    <div class="navbar">
+        <div></div>
+      <div class="controls">
+        <button class="control-button">⇄</button>
+        <button class="control-button">⯬</button>
+        <button class="control-button">▶</button>
+        <button class="control-button">⯮</button>
+        <button class="control-button">⟲</button>
+      </div>
+      <div class="rounded-box">
+        <div class="highlight" onclick="location.href='music_detail.html'"></div> <!-- 클릭 시 이동 -->
+        <div class="remaining"></div>
+      </div> <!-- 둥근 직사각형 추가 -->
+      <div class="sound-bar">
+        🔊 <input type="range" min="0" max="100" value="30" class="sound-slider">
+      </div>
+      <div class="section"> 
+        
+      <select class="sidebar-select">
+        <option value="profile">프로필</option>
+        <option value="preferences">환경 설정</option>
+        <option value="logout">로그아웃</option>
+      </select>
+    </div>
+    </div>
+
+    <!-- 홈 섹션 -->
+    <section id="home">
+      <h1>홈</h1>
+      <p>환영합니다! 여기에 홈 콘텐츠를 추가하세요.</p>
+      <!-- 홈 콘텐츠 추가 --> 
+    </section>
+
+    <!-- 앨범 섹션 -->
+    <section id="music">
+    <h1>새로운 음악</h1>
+    <div class="albums">
+      <div class="album-card">
+        <img src="https://via.placeholder.com/200" alt="앨범 이미지">
+        <h3>앨범 제목 1</h3>
+        <p>아티스트 1</p>
+      </div>
+      <div class="album-card">
+        <img src="https://via.placeholder.com/200" alt="앨범 이미지">
+        <h3>앨범 제목 2</h3>
+        <p>아티스트 2</p>
+      </div>
+      <div class="album-card">
+        <img src="https://via.placeholder.com/200" alt="앨범 이미지">
+        <h3>앨범 제목 3</h3>
+        <p>아티스트 3</p>
+      </div>
+      <div class="album-card">
+        <img src="https://via.placeholder.com/200" alt="앨범 이미지">
+        <h3>앨범 제목 4</h3>
+        <p>아티스트 4</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- 라디오 섹션 -->
+     <section id="radio" style="display: none;">
+      <h1>라디오</h1>
+      <p>라디오 방송 목록</p>
+      <!-- 라디오 방송 목록 추가 -->
+    </section>
+
+    <!-- 보관함 섹션 -->
+    <section id="box" style="display: none;">
+      <h1>보관함</h1>
+      <p>보관함 내용</p>
+      <!-- 보관함 내용 추가 -->
+    </section>
+
+    <!-- 플레이리스트 섹션 -->
+    <section id="playlist" style="display: none;">
+      <h1>플레이리스트</h1>
+      <p>플레이리스트 내용</p>
+      <!-- 플레이리스트 내용 추가 -->
+    </section>
+
+    
+  </div>
+
+  <script>
+  // 페이지 로드 시 홈 섹션만 표시
+  document.addEventListener('DOMContentLoaded', () => {
+    showSection('home');
+  });
+
+  function showSection(sectionId) {
+    // 모든 섹션 숨기기
+    document.querySelectorAll('section').forEach((section) => {
+      section.style.display = 'none';
+    });
+
+    // 선택된 섹션 표시
+    document.getElementById(sectionId).style.display = 'block';
+  }
+</script>
+</body>
+</html>

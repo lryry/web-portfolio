@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>다이어리 상세</title>
+  <link rel="stylesheet" href="common.css">
+  <style>
+    .diary-detail-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+      width: 100%;
+      min-height: 100%;
+    }
+    .diary-detail-sheet {
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      width: 480px;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .diary-detail-date {
+      font-size: 1.1rem;
+      color: #6e9c8f;
+      text-align: center;
+      margin-bottom: 2px;
+    }
+    .diary-detail-title {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #174642;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .diary-detail-body {
+      font-size: 1.1rem;
+      color: #174642;
+      background: #ecf4f3;
+      border-radius: 8px;
+      padding: 18px 16px;
+      min-height: 120px;
+      white-space: pre-line;
+    }
+    .diary-detail-btn-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .diary-detail-btn {
+      border: none;
+      background: #6e9c8f;
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px 28px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .diary-detail-btn:active {
+      background: #174642;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 왼쪽 사이드바 -->
+    <div class="sidebar">
+      <div class="sidebar-info">
+        <strong>📌 오늘의 할 일</strong>
+        <ul>
+          <li>다이어리 쓰기</li>
+          <li>노래 듣기</li>
+          <li>게임 미션 완료</li>
+        </ul>
+      </div>
+      <!-- 일정 목록 표시 (투명 박스, 스크롤 가능) -->
+      <div class="schedule-list-area">
+        <h3 class="schedule-list-title">📅 내 일정</h3>
+        <div class="schedule-list-box">
+          <ul class="schedule-list-ul">
+            <li><input type="checkbox">2025-05-28 ~ 2025-05-29 : 프로젝트 발표</li>
+            <li><input type="checkbox">2025-06-01 ~ 2025-06-01 : 친구 생일파티</li>
+            <li><input type="checkbox">2025-06-10 ~ 2025-06-12 : 가족여행</li>
+            <li><input type="checkbox">2025-06-15 ~ 2025-06-15 : 병원 예약</li>
+            <li><input type="checkbox">2025-06-20 ~ 2025-06-21 : 워크샵</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blue-dot dot-left-1"></div>
+      <div class="blue-dot dot-left-2"></div>
+      <div class="blue-dot dot-left-3"></div>
+      <div class="blue-dot dot-left-4"></div>
+    </div>
+    <!-- 오른쪽 내용 영역 -->
+    <div class="content">
+      <div class="dot-connector connector-1"></div>
+      <div class="dot-connector connector-2"></div>
+      <div class="dot-connector connector-3"></div>
+      <div class="dot-connector connector-4"></div>
+      <div class="blue-dot dot-right-1"></div>
+      <div class="blue-dot dot-right-2"></div>
+      <div class="blue-dot dot-right-3"></div>
+      <div class="blue-dot dot-right-4"></div>
+      <!-- 다이어리 상세 내용 -->
+      <div class="diary-detail-content">
+        <div class="diary-detail-sheet">
+          <div class="diary-detail-date">2025-09-01</div>
+          <div class="diary-detail-title">예시 다이어리 제목</div>
+          <div class="diary-detail-body">
+오늘은 정말 즐거운 하루였다.
+친구들과 함께 카페에 가서 맛있는 디저트를 먹고, 산책도 했다.
+내일도 좋은 하루가 되길!
+          </div>
+          <div class="diary-detail-btn-row">
+            <a href="diary.html" class="diary-detail-btn">목록으로</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 오른쪽 탭 영역 -->
+    <div class="side-area">
+      <a href="main.html" class="side-tab" title="홈">&#8962;</a>
+      <a href="diary.html" class="side-tab active" title="다이어리">📔</a>
+      <a href="music.html" class="side-tab" title="음악">🎵</a>
+      <a href="game.html" class="side-tab" title="게임">🎮</a>
+      <button class="side-tab" title="메세지">💬</button>
+      <button class="side-tab" title="설정">&#9881;</button>
+      <button class="side-tab" title="정보">&#8505;</button>
+      <a href="로그인.html" class="side-tab" title="로그아웃">&#10162;</a>
+      <button class="side-tab" title="목록">&#9776;</button>
+    </div>
+  </div>
+</body>
+</html>

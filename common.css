@@ -1,0 +1,236 @@
+/* ===== 전체 배경 및 레이아웃 ===== */
+body {
+  background-color: #6e9c8f;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container {
+  background: #c8ded9;
+  border: 24px solid #174642;
+  border-radius: 0.5rem;
+  width: 90vw;
+  max-width: 1200px;
+  height: 95vh;
+  min-height: 600px;
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* ===== 왼쪽 사이드바 ===== */
+.sidebar {
+  width: 300px;
+  background: #ecf4f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  position: relative;
+  border-right: 6px solid #174642;
+}
+.profile-circle {
+  width: 140px;
+  height: 140px;
+  background: #6e9c8f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #ecf4f3;
+  margin-bottom: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.profile-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #174642;
+  margin-bottom: 10px;
+}
+.profile-message {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+.sidebar-info {
+  font-size: 14px;
+  color: #174642;
+  text-align: left;
+  width: 80%;
+  margin-bottom: 30px;
+}
+.sidebar-info strong {
+  display: block;
+  margin-bottom: 5px;
+}
+.sidebar-info ul {
+  padding-left: 20px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== 메인 콘텐츠 영역 ===== */
+.content {
+  flex: 1;
+  background: #ecf4f3;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== 오른쪽 탭 영역 ===== */
+.side-area {
+  width: 50px;
+  background: #174642;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 30px;
+  gap: 10px;
+}
+.side-tab {
+  width: 70px;
+  height: 40px;
+  background: #ecf4f3;
+  color: #174642;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  z-index: 1;
+  text-decoration: none;
+}
+.side-tab.active, .side-tab:hover {
+  background: #c8ded9;
+  color: #174642;
+}
+
+/* ===== 점 및 연결 바 ===== */
+.blue-dot {
+  width: 22px;
+  height: 22px;
+  background: #174642;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+}
+.dot-connector {
+  position: absolute;
+  left: -40px;
+  width: 70px;
+  height: 16px;
+  background: #6e9c8f;
+  border-radius: 12px;
+  z-index: 2;
+}
+.connector-1 { top: 40px; }
+.connector-2 { top: 82px; }
+.connector-3 { bottom: 122px; }
+.connector-4 { bottom: 82px; }
+.dot-left-1 { left: 260px; top: 38px; }
+.dot-left-2 { left: 260px; top: 80px; }
+.dot-left-3 { left: 260px; bottom: 120px; }
+.dot-left-4 { left: 260px; bottom: 80px; }
+.dot-right-1 { right: 760px; top: 38px; }
+.dot-right-2 { right: 760px; top: 80px; }
+.dot-right-3 { right: 760px; bottom: 120px; }
+.dot-right-4 { right: 760px; bottom: 80px; }
+
+/* ===== 일정 추가 폼 및 일정 목록 ===== */
+.schedule-add-form {
+  width: 80%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #174642;
+}
+.schedule-add-title {
+  color: #174642;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+.schedule-add-label {
+  color: #174642;
+  font-size: 0.95rem;
+}
+.schedule-add-input {
+  border: 1px solid #c8ded9;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 0.98rem;
+  background: #ecf4f3;
+  color: #174642;
+}
+.schedule-add-btn {
+  margin-top: 6px;
+  border: none;
+  background: #6e9c8f;
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.schedule-add-btn:active {
+  background: #174642;
+}
+
+.schedule-list-area {
+  width: 90%;
+  margin-top: 18px;
+  color: #174642;
+}
+.schedule-list-title {
+  color: #174642;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.schedule-list-box {
+  background: rgba(255,255,255,0.4);
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 12px 12px 8px 12px;
+  max-height: 180px;
+  overflow-y: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.schedule-list-ul {
+  padding-left: 18px;
+  color: #174642;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 0;
+}
+.schedule-list-ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.schedule-list-ul input[type="checkbox"] {
+  accent-color: #6e9c8f;
+  margin-right: 4px;
+}
+
+/* diary_detail, diary.html에서 높이 조정 */
+.sidebar .schedule-list-area {
+  margin-top: 24px;
+}
+.sidebar .schedule-list-box {
+  max-height: 180px;
+}

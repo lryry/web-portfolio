@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join</title>
+<link rel="stylesheet" href="common.css">
+<style>
+    /* 회원가입 폼 개별 스타일만 남기고 공통 스타일 제거 */
+    .signup-form-container {
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      min-width: 340px;
+      max-width: 420px;
+      width: 100%;
+    }
+    .signup-form-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 18px;
+    }
+    .signup-form-table input[type="text"],
+    .signup-form-table input[type="password"],
+    .signup-form-table input[type="date"] {
+      width: 100%;
+      height: 42px;
+      font-size: 18px;
+      border: 0;
+      border-radius: 15px;
+      outline: none;
+      padding-left: 18px;
+      background: #ffffff;
+      box-shadow: 0 1px 0 #b3b3b3;
+      box-sizing: border-box;
+    }
+    .signup-form-table select {
+      width: 120px;
+      height: 42px;
+      font-size: 18px;
+      border: 0;
+      border-radius: 15px;
+      outline: none;
+      padding-left: 10px;
+      background: #ffffff;
+      margin-left: 4px;
+      box-shadow: 0 1px 0 #b3b3b3;
+    }
+    .signup-form-table input[type="submit"] {
+      width: 100%;
+      height: 42px;
+      font-size: 18px;
+      border: 0;
+      border-radius: 15px;
+      outline: none;
+      background: #6e9c8f;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 2px 8px #0001;
+      box-sizing: border-box;
+    }
+    .signup-form-table input[type="submit"]:active {
+      background: #174642;
+    }
+    .signup-form-table label {
+      font-size: 13px;
+      color: #174642;
+      margin-left: 6px;
+    }
+    .signup-form-table .email-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .signup-form-table .email-input {
+      flex: 1;
+    }
+    .signup-form-table .at-sign {
+      margin: 0 4px;
+      color: #888;
+    }
+    .signup-form-table .id-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .signup-form-table .check-btn {
+      height: 38px;
+      width: 100px;
+      padding: 0 18px;
+      font-size: 12px;
+      border: none;
+      border-radius: 12px;
+      background: #6e9c8f;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-left: 4px;
+      box-shadow: 0 1px 0 #b3b3b3;
+    }
+    .signup-form-table .check-btn:active {
+      background: #174642;
+    }
+    .signup-form-table th {
+      text-align: left;
+      font-size: 16px;
+      color: #174642;
+      padding-bottom: 2px;
+      width: 90px;
+      white-space: nowrap;
+      padding-right: 10px;
+    }
+    .signup-form-table td {
+      padding: 0;
+    }
+    .signup-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #6e9c8f;
+      text-decoration: none;
+    }
+    /* 중앙 정렬을 위한 flex 스타일 */
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- 왼쪽 사이드바 -->
+    <div class="sidebar">
+      <img src="picture/logo.png" alt="로고" style="width:300px; height:auto; display:block;">
+      <!-- 왼쪽 파란 점 4개 -->
+      <div class="blue-dot dot-left-1"></div>
+      <div class="blue-dot dot-left-2"></div>
+      <div class="blue-dot dot-left-3"></div>
+      <div class="blue-dot dot-left-4"></div>
+    </div>
+    <!-- 오른쪽 내용 영역 -->
+    <div class="content">
+        <!-- 오른쪽 파란 점 4개 -->
+        <div class="dot-connector connector-1"></div>
+        <div class="dot-connector connector-2"></div>
+        <div class="dot-connector connector-3"></div>
+        <div class="dot-connector connector-4"></div>
+        <div class="blue-dot dot-right-1"></div>
+        <div class="blue-dot dot-right-2"></div>
+        <div class="blue-dot dot-right-3"></div>
+        <div class="blue-dot dot-right-4"></div>
+        <form class="signup-form-container" action="login.html">
+          <table class="signup-form-table">
+            <tr>
+              <td style="text-align:center;" colspan="2">
+                <h2 style="margin:0 0 18px 0; color:#174642; font-size:2.2rem;">회원가입</h2>
+              </td>
+            </tr>
+            <tr>
+              <td style="width:90px;"><label for="userid">아이디</label></td>
+              <td>
+                <div class="id-row">
+                  <input type="text" id="userid" name="userid" required>
+                  <button type="button" class="check-btn">중복확인</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="password">비밀번호</label></td>
+              <td><input type="password" id="password" name="password" required></td>
+            </tr>
+            <tr>
+              <td><label for="password_confirm">비밀번호 확인</label></td>
+              <td><input type="password" id="password_confirm" name="password_confirm" required></td>
+            </tr>
+            <tr>
+              <td><label for="username">이름</label></td>
+              <td><input type="text" id="username" name="username" required></td>
+            </tr>
+            <tr>
+              <td><label for="birth">생년월일</label></td>
+              <td><input type="date" id="birth" name="birth" required></td>
+            </tr>
+            <tr>
+              <td><label for="email_id">이메일</label></td>
+              <td>
+                <div class="email-row">
+                  <input type="text" class="email-input" id="email_id" name="email_id" required>
+                  <span class="at-sign">@</span>
+                  <select name="email_domain">
+                    <option value="naver.com">naver.com</option>
+                    <option value="gmail.com">gmail.com</option>
+                    <option value="daum.net">daum.net</option>
+                    <option value="nate.com">nate.com</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <input type="submit" value="가입하기" onclick="alert('가입 성공!')">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <a href="로그인.html" class="signup-link">이미 계정이 있으신가요? 로그인</a>
+              </td>
+            </tr>
+          </table>
+        </form>
+    </div>
+    <!-- 오른쪽 추가 영역 -->
+    <div class="side-area">
+      <a href="main.html" class="side-tab active" title="홈" style="text-decoration:none;">&#8962;</a>
+      <a href="diary.html" class="side-tab" title="다이어리" style="text-decoration:none;">📔</a>
+      <a href="music.html" class="side-tab" title="음악" style="text-decoration:none;">🎵</a>
+      <a href="game.html" class="side-tab" title="게임" style="text-decoration:none;">🎮</a>
+      <button class="side-tab" title="메세지">💬</button>
+      <button class="side-tab active" title="설정" style="text-decoration:none;">&#9881;</button>
+      <button class="side-tab" title="정보">&#8505;</button>
+      <a href="로그인.html" class="side-tab" title="로그아웃" style="text-decoration:none;">&#10162;</a>
+      <button class="side-tab" title="목록">&#9776;</button>
+    </div>
+  </div>
+</body>
+</html>

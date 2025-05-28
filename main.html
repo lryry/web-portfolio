@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>메인 메뉴</title>
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    /* main.html만의 개별 스타일이 있다면 여기에 작성 */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 왼쪽 사이드바 -->
+    <div class="sidebar">
+      <!-- 프로필 원형 -->
+      <div class="profile-circle">프로필</div>
+      <!-- 사용자 이름 -->
+      <div class="profile-name">홍길동</div>
+      <!-- 한 줄 소개 -->
+      <div class="profile-message">오늘도 차분하게, 나답게 ☘️</div>
+      <!-- 오늘의 할 일 -->
+      <div class="sidebar-info">
+        <strong>📌 오늘의 할 일</strong>
+        <ul>
+          <li>다이어리 쓰기</li>
+          <li>노래 듣기</li>
+          <li>게임 미션 완료</li>
+        </ul>
+      </div>
+      <!-- 왼쪽 점 4개 -->
+      <div class="blue-dot dot-left-1"></div>
+      <div class="blue-dot dot-left-2"></div>
+      <div class="blue-dot dot-left-3"></div>
+      <div class="blue-dot dot-left-4"></div>
+    </div>
+
+    <!-- 오른쪽 내용 영역 -->
+    <div class="content">
+      <!-- 점 연결 바(둥근 사각형) 4개 -->
+      <div class="dot-connector connector-1"></div>
+      <div class="dot-connector connector-2"></div>
+      <div class="dot-connector connector-3"></div>
+      <div class="dot-connector connector-4"></div>
+      <!-- 오른쪽 파란 점 4개 -->
+      <div class="blue-dot dot-right-1"></div>
+      <div class="blue-dot dot-right-2"></div>
+      <div class="blue-dot dot-right-3"></div>
+      <div class="blue-dot dot-right-4"></div>
+
+      <!-- ✅ 홈 콘텐츠 추가 -->
+      <div style="padding: 40px; font-family: 'Arial', sans-serif; color: #174642; ">
+        <!-- 오늘 날짜와 인사말 -->
+        <div style="margin-bottom: 30px;">
+          <h2 style="margin: 0;">2025년 5월 26일</h2>
+          <p style="margin-top: 8px; font-size: 18px;">오늘 하루도 좋은 하루 되세요 😊</p>
+        </div>
+
+        <!-- 오늘의 기분 -->
+        <div style="margin-bottom: 30px;">
+          <p style="margin-bottom: 10px;">오늘 기분은 어떤가요?</p>
+          <div style="font-size: 28px; display: flex; gap: 12px;">
+            <span title="행복">😄</span>
+            <span title="보통">😐</span>
+            <span title="슬픔">😢</span>
+            <span title="화남">😡</span>
+            <span title="피곤">😴</span>
+          </div>
+        </div>
+
+        <!-- 최근 다이어리 -->
+        <div style="margin-bottom: 30px;">
+          <h3 style="margin-bottom: 10px;">📔 최근 다이어리</h3>
+          <ul style="padding-left: 20px; line-height: 1.6;">
+            <li>5월 25일 - 좋은 하루</li>
+            <li>5월 24일 - 비 오는 날</li>
+            <li>5월 23일 - 친구랑 카페</li>
+          </ul>
+        </div>
+
+        <!-- 오늘의 추천 노래 -->
+        <div style="margin-bottom: 30px;">
+          <h3 style="margin-bottom: 10px;">🎵 오늘의 추천 노래</h3>
+          <audio controls style="width: 100%; max-width: 400px;">
+            <source src="music/today_song.mp3" type="audio/mp3">
+            브라우저가 오디오를 지원하지 않습니다.
+          </audio>
+        </div>
+
+        <!-- 게임 미션 -->
+        <div>
+          <h3 style="margin-bottom: 10px;">🎮 오늘의 게임 미션</h3>
+          <p>기억력 테스트에 도전해 보세요!</p>
+          <a href="game.html" style="display: inline-block; margin-top: 8px; text-decoration: none; color: #174642; font-weight: bold;">→ 게임 시작</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 오른쪽 탭 영역 -->
+    <div class="side-area">
+      <a href="main.html" class="side-tab active" title="홈">&#8962;</a>
+      <a href="diary.html" class="side-tab" title="다이어리">📔</a>
+      <a href="music.html" class="side-tab" title="음악">🎵</a>
+      <a href="game.html" class="side-tab" title="게임">🎮</a>
+      <button class="side-tab" title="메세지">💬</button>
+      <button class="side-tab" title="설정">&#9881;</button>
+      <button class="side-tab" title="정보">&#8505;</button>
+      <a href="로그인.html" class="side-tab" title="로그아웃">&#10162;</a>
+      <button class="side-tab" title="목록">&#9776;</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>아케이드 머신 디자인</title>
+  <style>
+    /* 전체 배경 및 레이아웃 설정 */
+    body {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* 상단 정렬 */
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* 게임 선택 메뉴 스타일 */
+    .game-selection {
+      position: fixed; /* 고정 위치 */
+      top: 0;
+      left: 0; /* 왼쪽으로 붙이기 */
+      width: 200px; /* 너비 */
+      background-color: #333; /* 더 어두운 배경 */
+      color: white;
+      padding: 15px;
+      height: 100%;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif; /* 폰트 변경 */
+    }
+
+    /* 게임 선택 메뉴 리스트 스타일 */
+    .game-selection ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .game-selection li {
+      margin: 15px 0; /* 간격 증가 */
+      cursor: pointer;
+      padding: 10px;
+      background-color: #444; /* 더 어두운 배경 */
+      text-align: center;
+      border-radius: 10px; /* 둥근 모서리 */
+      font-size: 16px; /* 글자 크기 증가 */
+      transition: background-color 0.3s, color 0.3s; /* 부드러운 전환 효과 */
+    }
+
+    /* 메뉴 항목 호버 효과 */
+    .game-selection li:hover {
+      background-color: yellow;
+      color: black;
+      transform: scale(1.05); /* 살짝 확대 효과 */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+    }
+
+    /* 선택된 메뉴 항목 스타일 */
+    .game-selection li.active {
+      background-color: yellow; /* 선택된 상태 */
+      color: black;
+      font-weight: bold;
+    }
+
+    /* 아케이드 머신 상단 파란색 직사각형 */
+    .rectangle-blue-top {
+      width: 600px;
+      height: 100px;
+      background-color: blue;
+      border-top: 10px solid yellow;
+      border-right: 10px solid yellow;
+      border-left: 10px solid yellow;
+    }
+
+    /* 아케이드 머신 화면 영역 */
+    .rectangle-blue-screen {
+      width: 500px;
+      height: 320px;
+      background-color: blue;
+      border-right: 10px solid yellow;
+      border-left: 10px solid yellow;
+      position: relative; /* ::before와 ::after를 위한 상대 위치 */
+    }
+
+    /* 화면 내부 캔버스 정렬 */
+    .rectangle-blue-screen .screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 캔버스 스타일 */
+    canvas {
+      display: block;
+      background-color: black;
+      width: 460px; /* 스크린 크기 */
+      height: 270px; /* 스크린 크기 */
+    }
+
+    /* 코인 버튼 스타일 */
+    .coin-button {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .rectangle-blue-screen::before,
+    .rectangle-blue-screen::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 400px;
+      background-color: yellow;
+    }
+
+    .rectangle-blue-screen::before {
+      top: -10px;
+      left: -10px;
+    }
+
+    .rectangle-blue-screen::after {
+      top: -10px;
+      right: -10px;
+    }
+    .rectangle-blue-bottom {
+      width: 600px;
+      height: 150px;
+      background-color: blue;
+      margin: 0 5px;
+      border-bottom: 10px solid yellow;
+      border-right: 10px solid yellow;
+      border-left: 10px solid yellow;
+    }
+
+    .trapezoid_shape-navy {
+  position: relative;
+  width: 500px;
+  height: 40px;
+  background-color: navy;
+}
+/* 삼각형 테두리 시뮬레이션을 위한 노란색 겹겹이 삼각형 */
+.trapezoid_shape-navy::before,
+.trapezoid_shape-navy::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.trapezoid_shape-navy::before {
+  top: 0;
+  left: -60px;
+  border-width: 0 50px 40px 0;
+  border-color: transparent yellow transparent transparent;
+}
+
+.trapezoid_shape-navy::after {
+  top: 0;
+  right: -60px;
+  border-width: 0 0 40px 50px;
+  border-color: transparent transparent transparent yellow;
+}
+
+/* 내부 삼각형 (기존 남색 삼각형) 위에 덮어쓰기 */
+.trapezoid_shape-navy .inner-left,
+.trapezoid_shape-navy .inner-right {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  z-index: 1;
+}
+
+.trapezoid_shape-navy .inner-left {
+  left: -50px;
+  border-width: 0 50px 40px 0;
+  border-color: transparent navy transparent transparent;
+}
+
+.trapezoid_shape-navy .inner-right {
+  right: -50px;
+  border-width: 0 0 40px 50px;
+  border-color: transparent transparent transparent navy;
+}
+
+
+    .trapezoid_shape_bottom-navy { 
+      position: relative;
+      width: 500px;
+      height: 130px;
+      background-color: navy;
+      margin: 0 5px;
+      z-index: 1; /* 조이스틱 아래 배치 */
+    }
+    .trapezoid_shape_bottom-navy::before,
+    .trapezoid_shape_bottom-navy::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    .trapezoid_shape_bottom-navy::before {
+      top: 0;
+      left: -60px;
+      border-width: 130px 50px 0px 0;
+      border-color: transparent yellow transparent transparent;
+    }
+    .trapezoid_shape_bottom-navy::after {
+      top: 0;
+      right: -60px;
+      border-width: 0 50px 130px 0;
+      border-color: transparent transparent yellow transparent;
+    }
+    .trapezoid_shape_bottom-navy .inner-left,
+.trapezoid_shape_bottom-navy .inner-right {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  z-index: 1;
+}
+
+.trapezoid_shape_bottom-navy .inner-left {
+  left: -50px;
+  border-width: 130px 50px 0px 0;
+  border-color: transparent navy transparent transparent;
+}
+
+.trapezoid_shape_bottom-navy .inner-right {
+  right: -50px;
+  border-width: 0 50px 130px 0;
+  border-color: transparent transparent navy transparent;
+}
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* 추가: 도형을 가운데 정렬 */
+    }
+
+    /* 조이스틱 스타일 */
+.joystick-base {
+  position: absolute; /* 절대 위치로 변경 */
+  top: 50px; /* 더 아래로 이동 */
+  left: 20%; /* 더 왼쪽으로 이동 */
+  transform: translateX(-50%);
+  width: 50px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.joystick-stick {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 10px;
+  height: 60px;
+  background-color: black;
+  transform: translateX(-50%);
+}
+
+.joystick-ball {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+  /* 오른쪽 상단 버튼 스타일 */
+  .main-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .main-button:hover {
+    background-color: orange;
+    transform: scale(1.1); /* 살짝 확대 효과 */
+  }
+
+  /* 버튼 컨테이너 스타일 */
+  .button-container {
+    position: absolute;
+    top: 50px; /* 조이스틱과 같은 높이 */
+    left: 40%; /* 조이스틱 오른쪽에 배치 */
+    display: flex;
+    gap: 15px; /* 버튼 간격 */
+  }
+
+  /* 버튼 스타일 */
+  .arcade-button {
+    width: 40px;
+    height: 20px;
+    background-color: yellow;
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .arcade-button.red {
+    background-color: red;
+  }
+
+  .arcade-button:hover {
+    transform: scale(0.9); /* 축소 효과 */
+  }
+
+  .arcade-button:active {
+    transform: scale(0.8); /* 눌리는 효과 */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5); /* 안쪽 그림자 */
+  }
+
+  /* 게임 목록 비활성화 스타일 */
+  .game-selection.disabled {
+    pointer-events: none; /* 클릭 비활성화 */
+    opacity: 0.5; /* 흐리게 표시 */
+  }
+
+  /* 스크린 중앙 텍스트 스타일 */
+  .screen-text {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* 게임오버 텍스트 스타일 */
+  .game-over-text {
+    position: absolute;
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    display: none; /* 초기에는 숨김 */
+  }
+</style>
+</head>
+<body>
+  <!-- 오른쪽 상단 메인으로 이동 버튼 -->
+  <a href="main.html" class="main-button">메인으로</a>
+
+  <!-- 게임 선택 메뉴 -->
+  <div class="game-selection">
+    <ul>
+      <li onclick="selectGame('snake')">Snake Game</li> <!-- Snake 게임 선택 -->
+      <li onclick="selectGame('tetris')">Tetris</li> <!-- Tetris 게임 선택 -->
+    </ul>
+  </div>
+
+  <!-- 아케이드 머신 컨테이너 -->
+  <div class="container">
+    <div class="rectangle-blue-top"></div> <!-- 상단 파란색 직사각형 -->
+    <div class="trapezoid_shape-navy">
+      <div class="inner-left"></div>
+      <div class="inner-right"></div>
+    </div>
+    <div class="rectangle-blue-screen">
+      <div class="screen">
+        <canvas id="snakeCanvas" width="460" height="270"></canvas> <!-- Snake 게임 캔버스 -->
+        <canvas id="tetrisCanvas" width="460" height="270" style="display: none;"></canvas> <!-- Tetris 게임 캔버스 -->
+        <div id="screenText" class="screen-text" style="display: none;"></div> <!-- 스크린 중앙 텍스트 -->
+        <div id="gameOverText" class="game-over-text">Game Over</div> <!-- 게임오버 텍스트 -->
+      </div>
+    </div>
+    <button class="coin-button" id="startButton">Insert Coin</button> <!-- 코인 버튼 -->
+    <div class="trapezoid_shape_bottom-navy">
+      <div class="joystick-base">
+        <div class="joystick-stick"></div>
+        <div class="joystick-ball"></div>
+      </div>
+      <div class="button-container">
+        <div class="arcade-button yellow"></div>
+        <div class="arcade-button yellow"></div>
+        <div class="arcade-button red"></div>
+      </div>
+      <div class="inner-left"></div>
+      <div class="inner-right"></div>
+    </div>
+    <div class="rectangle-blue-bottom"></div> <!-- 하단 파란색 직사각형 -->
+  </div>
+
+  <!-- 외부 Java스크립트 파일 참조 -->
+  <script src="game/snake.js"></script> <!-- Snake 게임 로직 -->
+  <script src="game/tetris.js"></script> <!-- Tetris 게임 로직 -->
+  <script>
+    // 캔버스 및 버튼 요소 가져오기
+    const snakeCanvas = document.getElementById('snakeCanvas');
+    const tetrisCanvas = document.getElementById('tetrisCanvas');
+    const startButton = document.getElementById('startButton');
+    const gameItems = document.querySelectorAll('.game-selection li');
+    const gameSelection = document.querySelector('.game-selection');
+    const screenText = document.getElementById('screenText');
+    const gameOverText = document.getElementById('gameOverText');
+
+    let currentGame = 'snake'; // 현재 선택된 게임
+
+    // 초기 상태: 게임 목록 비활성화
+    gameSelection.classList.add('disabled');
+
+    // 게임 시작 함수
+    function startGame() {
+      screenText.style.display = 'none'; // 게임 이름 숨김
+      gameOverText.style.display = 'none'; // 게임오버 숨김
+
+      if (currentGame === 'snake') {
+        startSnakeGame(); // Snake 게임 시작
+      } else if (currentGame === 'tetris') {
+        startTetrisGame(); // Tetris 게임 시작
+      }
+    }
+
+    // 게임오버 함수
+    function gameOver() {
+      screenText.style.display = 'none'; // 게임 이름 숨김
+      gameOverText.style.display = 'block'; // 게임오버 메시지 스크린에 표시
+    }
+
+    // 게임 선택 함수
+    function selectGame(game) {
+      currentGame = game;
+
+      // 선택된 게임 강조
+      gameItems.forEach((item) => {
+        if (item.textContent.includes(game.charAt(0).toUpperCase() + game.slice(1))) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      // 캔버스 전환
+      if (game === 'snake') {
+        snakeCanvas.style.display = 'block';
+        tetrisCanvas.style.display = 'none';
+      } else if (game === 'tetris') {
+        snakeCanvas.style.display = 'none';
+        tetrisCanvas.style.display = 'block';
+      }
+
+      // 스크린 중앙에 게임 이름 표시
+      screenText.textContent = game.charAt(0).toUpperCase() + game.slice(1) + " Game";
+      screenText.style.display = 'block';
+    }
+
+    // 코인 버튼 클릭 이벤트
+    startButton.addEventListener('click', () => {
+      gameSelection.classList.remove('disabled'); // 게임 목록 활성화
+      screenText.style.display = 'none'; // 게임 이름 숨기기
+      gameOverText.style.display = 'none'; // GAME OVER 숨기기
+    });
+
+    // 버튼 클릭 이벤트로 게임 시작
+    document.querySelectorAll('.arcade-button').forEach((button) => {
+      button.addEventListener('click', startGame);
+    });
+
+    // 예시: 게임오버 호출 (게임 로직에서 호출)
+    // gameOver();
+  </script>
+</body>
+</html>

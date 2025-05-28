@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인</title>
+  <link rel="stylesheet" href="common.css">
+  <style>
+    .login-form-container {
+      /* 흰 배경, 그림자, 테두리 제거 */
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      min-width: 320px;
+      max-width: 340px;
+      width: 100%;
+    }
+    .login-form-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 12px;
+    }
+    .login-form-table input[type="text"],
+    .login-form-table input[type="password"] {
+      width: 100%;
+      height: 32px;
+      font-size: 15px;
+      border: 0;
+      border-radius: 15px;
+      outline: none;
+      padding-left: 10px;
+      background: #ffffff;
+      box-shadow: 0 1px 0 #b3b3b3;
+      box-sizing: border-box;
+    }
+    .login-form-table input[type="submit"] {
+      width: 100%;
+      height: 32px;
+      font-size: 15px;
+      border: 0;
+      border-radius: 15px;
+      outline: none;
+      background: #6e9c8f;
+      color: #fff;
+      cursor: pointer;
+    }
+    .login-form-table input[type="submit"]:active {
+      background: #174642;
+    }
+    .login-form-table label {
+      font-size: 13px;
+      color: #174642;
+      margin-left: 6px;
+    }
+    .login-form-table a {
+      font-size: 12px;
+      color: #6e9c8f;
+      text-decoration: none;
+    }
+    /* 중앙 정렬을 위한 flex 스타일 */
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 왼쪽 사이드바 -->
+    <div class="sidebar">
+      <img src="picture/logo.png" alt="로고" style="width:300px; height:auto; display:block;">
+    <!-- 왼쪽 파란 점 4개 -->
+      <div class="blue-dot dot-left-1"></div>
+      <div class="blue-dot dot-left-2"></div>
+      <div class="blue-dot dot-left-3"></div>
+      <div class="blue-dot dot-left-4"></div>
+      </div>
+    <!-- 오른쪽 내용 영역 -->
+    <div class="content">
+      <div class="dot-connector connector-1"></div>
+      <div class="dot-connector connector-2"></div>
+      <div class="dot-connector connector-3"></div>
+      <div class="dot-connector connector-4"></div>
+      <div class="blue-dot dot-right-1"></div>
+      <div class="blue-dot dot-right-2"></div>
+      <div class="blue-dot dot-right-3"></div>
+      <div class="blue-dot dot-right-4"></div>
+      <!-- 로그인 폼 (박스 없이 심플하게) -->
+      <form class="login-form-container">
+        <table class="login-form-table">
+          <tr>
+            <td style="text-align:center;" colspan="1">
+              <h2 style="margin:0 0 18px 0; color:#174642; font-size:2.2rem;">로그인</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" placeholder="ID">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="password" placeholder="Password">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" id="saveLogin">
+              <label for="saveLogin" style="font-size:14px; color:#174642; margin-left:6px;">로그인 정보 저장</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="submit" value="Sign in"
+                onclick="alert('로그인 성공!')">
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">
+              <a href="회원가입.html" style="font-size:13px;color:#6e9c8f;text-decoration:none;">회원가입</a>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <!-- 오른쪽 추가 영역 -->
+    <div class="side-area">
+      <a href="main.html" class="side-tab active" title="홈" style="text-decoration:none;">&#8962;</a>
+      <a href="diary.html" class="side-tab" title="다이어리" style="text-decoration:none;">📔</a>
+      <a href="music.html" class="side-tab" title="음악" style="text-decoration:none;">🎵</a>
+      <a href="game.html" class="side-tab" title="게임" style="text-decoration:none;">🎮</a>
+      <button class="side-tab" title="메세지">💬</button>
+      <button class="side-tab active" title="설정" style="text-decoration:none;">&#9881;</button>
+      <button class="side-tab" title="정보">&#8505;</button>
+      <a href="로그인.html" class="side-tab" title="로그아웃" style="text-decoration:none;">&#10162;</a>
+      <button class="side-tab" title="목록">&#9776;</button>
+    </div>
+  </div>
+</body>
+</html>

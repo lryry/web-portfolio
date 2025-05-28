@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>다이어리 추가</title>
+  <link rel="stylesheet" href="common.css">
+  <style>
+    .add-diary-content {
+      padding: 32px 0 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100%;
+    }
+    .diary-form-sheet {
+      /* 흰 박스, 그림자, 테두리 제거 */
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      width: 480px;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 10px; /* 기존 40px에서 10px로 줄임 */
+    }
+    .diary-form-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #174642;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+      text-align: center;
+    }
+    .diary-form-label {
+      font-size: 1.05rem;
+      color: #174642;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .diary-form-input, .diary-form-textarea {
+      width: 100%;
+      border: 1px solid #c8ded9;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 1rem;
+      background: #ecf4f3;
+      color: #174642;
+      outline: none;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+    .diary-form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .diary-form-btn-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .diary-form-btn {
+      border: none;
+      background: #6e9c8f;
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px 28px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .diary-form-btn.cancel {
+      background: #c8ded9;
+      color: #174642;
+    }
+    .diary-form-btn:active {
+      background: #174642;
+    }
+    .sidebar {
+      color: #174642;
+    }
+    .schedule-add-form {
+      width: 80%;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: #174642;
+    }
+    .schedule-add-title {
+      color: #174642;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .schedule-add-label {
+      color: #174642;
+      font-size: 0.95rem;
+    }
+    .schedule-add-input {
+      border: 1px solid #c8ded9;
+      border-radius: 8px;
+      padding: 4px 8px;
+      font-size: 0.98rem;
+      background: #ecf4f3;
+    }
+    .schedule-add-btn {
+      margin-top: 6px;
+      border: none;
+      background: #6e9c8f;
+      color: #fff;
+      border-radius: 8px;
+      padding: 6px 0;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .schedule-list-area {
+      width: 90%;
+      margin-top: 18px;
+      color: #174642;
+    }
+    .schedule-list-title {
+      color: #174642;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .schedule-list-box {
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
+      box-shadow: none;
+      padding: 12px;
+      max-height: 180px;
+      overflow-y: auto;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .schedule-list-ul {
+      padding-left: 18px;
+      color: #174642;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 왼쪽 사이드바 -->
+    <div class="sidebar">
+      <!-- 일정 추가 폼 시작 -->
+      <form class="schedule-add-form">
+        <h2 class="schedule-add-title">일정 추가</h2>
+        <label for="schedule-title" class="schedule-add-label">일정명</label>
+        <input type="text" id="schedule-title" name="schedule-title" placeholder="일정 제목" required class="schedule-add-input">
+        <label for="schedule-start" class="schedule-add-label">시작일</label>
+        <input type="date" id="schedule-start" name="schedule-start" required class="schedule-add-input">
+        <label for="schedule-end" class="schedule-add-label">종료일</label>
+        <input type="date" id="schedule-end" name="schedule-end" required class="schedule-add-input">
+        <button type="submit" class="schedule-add-btn">추가</button>
+      </form>
+      <!-- 일정 목록 표시 (투명 박스, 스크롤 가능) -->
+      <div class="schedule-list-area">
+        <h3 class="schedule-list-title">📅 내 일정</h3>
+        <div class="schedule-list-box">
+          <ul class="schedule-list-ul">
+            <li>2025-05-28 ~ 2025-05-29 : 프로젝트 발표</li>
+            <li>2025-06-01 ~ 2025-06-01 : 친구 생일파티</li>
+            <li>2025-06-10 ~ 2025-06-12 : 가족여행</li>
+            <li>2025-06-15 ~ 2025-06-15 : 병원 예약</li>
+            <li>2025-06-20 ~ 2025-06-21 : 워크샵</li>
+            <li>2025-07-01 ~ 2025-07-03 : 여름캠프</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 왼쪽 점 4개 -->
+      <div class="blue-dot dot-left-1"></div>
+      <div class="blue-dot dot-left-2"></div>
+      <div class="blue-dot dot-left-3"></div>
+      <div class="blue-dot dot-left-4"></div>
+    </div>
+    <!-- 오른쪽 내용 영역 -->
+    <div class="content">
+      <!-- 점 연결 바(둥근 사각형) 4개 -->
+      <div class="dot-connector connector-1"></div>
+      <div class="dot-connector connector-2"></div>
+      <div class="dot-connector connector-3"></div>
+      <div class="dot-connector connector-4"></div>
+      <!-- 오른쪽 파란 점 4개 -->
+      <div class="blue-dot dot-right-1"></div>
+      <div class="blue-dot dot-right-2"></div>
+      <div class="blue-dot dot-right-3"></div>
+      <div class="blue-dot dot-right-4"></div>
+      <!-- 다이어리 작성 폼 -->
+      <div class="add-diary-content">
+        <form class="diary-form-sheet">
+          <div class="diary-form-title">다이어리 작성</div>
+          <label class="diary-form-label" for="diary-date">날짜</label>
+          <input class="diary-form-input" type="date" id="diary-date" name="date" required>
+          <label class="diary-form-label" for="diary-title">제목</label>
+          <input class="diary-form-input" type="text" id="diary-title" name="title" placeholder="제목을 입력하세요" required>
+          <label class="diary-form-label" for="diary-content">내용</label>
+          <textarea class="diary-form-textarea" id="diary-content" name="content" placeholder="오늘의 이야기를 적어보세요" required></textarea>
+          <div class="diary-form-btn-row">
+            <a type="button" class="diary-form-btn cancel" href="diary.html" style="text-decoration:none">취소</a>
+            <button type="submit" class="diary-form-btn">저장</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 오른쪽 탭 영역 -->
+    <div class="side-area">
+      <a href="main.html" class="side-tab" title="홈">&#8962;</a>
+      <a href="diary.html" class="side-tab active" title="다이어리">📔</a>
+      <a href="music.html" class="side-tab" title="음악">🎵</a>
+      <a href="game.html" class="side-tab" title="게임">🎮</a>
+      <button class="side-tab" title="메세지">💬</button>
+      <button class="side-tab" title="설정">&#9881;</button>
+      <button class="side-tab" title="정보">&#8505;</button>
+      <a href="로그인.html" class="side-tab" title="로그아웃">&#10162;</a>
+      <button class="side-tab" title="목록">&#9776;</button>
+    </div>
+  </div>
+</body>
+</html>
