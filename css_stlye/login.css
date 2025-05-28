@@ -40,20 +40,10 @@
     .login-form-table input[type="submit"]:active {
       background: #0288d1; /* 진한 하늘색 */
     }
-    .login-form-table label {
-      font-size: 13px;
-      color: #0288d1; /* 진한 하늘색 */
-      margin-left: 6px;
-    }
-    .login-form-table a {
-      font-size: 12px;
-      color: #4fc3f7; /* 하늘색 */
-      text-decoration: none;
-    }
+
     /* 중앙 정렬을 위한 flex 스타일 */
     .content {
       display: flex;
       justify-content: center;
       align-items: center;
     }
- 

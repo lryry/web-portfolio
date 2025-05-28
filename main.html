@@ -12,7 +12,6 @@
   <h1>컴공 취업 정보 게시판</h1>
   <div class="top-controls">
     <button onclick="location.href='로그인.html'">로그인</button>
-    <button onclick="location.href='write.html'">✏ Q&A</button>
   </div>
 </header>
   
@@ -51,15 +50,22 @@
 <section class="qna-preview">
   <div class="qna-header">
     <!-- 카테고리 탭 추가 -->
-  <h2>Q&A</h2>
-  <select id="category" required>
-    <option value="">카테고리 선택</option>
-    <option value="전체">전체</option>
-    <option value="소프트웨어">소프트웨어</option>
-    <option value="데이터">데이터</option>
-    <option value="네트워크/보안">네트워크/보안</option>
-    <option value="인공지능">인공지능</option>
-  </select>
+    <h2>Q&A</h2>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <select id="category" required>
+        <option value="">카테고리 선택</option>
+        <option value="전체">전체</option>
+        <option value="소프트웨어">소프트웨어</option>
+        <option value="데이터">데이터</option>
+        <option value="네트워크/보안">네트워크/보안</option>
+        <option value="인공지능">인공지능</option>
+      </select>
+      <button
+        onclick="location.href='write.html'"
+        style="height:32px; font-size:0.90em; padding: 10px; margin-bottom: 15px; display:flex; align-items:center; justify-content:center; line-height:1;">
+        ✏ 작성
+      </button>
+    </div>
   </div>
   <!-- 카테고리별 Q&A 리스트 -->
   <ul class="qna-list" id="qnaList">
