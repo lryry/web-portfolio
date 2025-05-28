@@ -8,7 +8,7 @@
 <body>
   <h1>게시글 보기</h1>
   <div id="postView"></div>
-  <button onclick="location.href='index.html'">← 목록으로</button>
+  <button onclick="location.href='main.html'">← 목록으로</button>
   <button id="deleteBtn" style="margin-left:10px; color: white; background-color: red;">삭제</button>
 
   <script>
@@ -41,7 +41,7 @@
         posts.splice(index, 1); 
         localStorage.setItem('posts', JSON.stringify(posts)); 
         alert('게시글이 삭제되었습니다.');
-        location.href = 'index.html'; 
+        location.href = 'main.html'; 
       }
     });
   </script>

@@ -2,105 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>컴공 취업 정보 게시판</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/write.css">
+  <title>나의 웹 프로젝트</title>
+  <meta http-equiv="refresh" content="0; url=main.html">
+  <!-- 위의 meta 태그는 0초 후 로그인.html로 자동 이동합니다. -->
 </head>
 <body>
-  <header>
-  <h1>컴공 취업 정보 게시판</h1>
-  <div class="top-controls">
-    <button onclick="location.href='write.html'">✏ Q&A</button>
-  </div>
-</header>
-  
-<main>
-  <!-- 카테고리 -->
-  <div class="category-list">
-    <a href="index.html" class="category-btn active">분야 선택</a>
-    <a href="software.html" class="category-btn">소프트웨어</a>
-    <a href="data.html" class="category-btn">데이터</a>
-    <a href="net.html" class="category-btn">네트워크/보안</a>
-    <a href="ai.html" class="category-btn">인공지능</a>
-  </div>
-  <!-- ...카테고리 리스트 아래에 추가... -->
-   <div class="quote-box" id="quoteBox">
-     <div class="quote-title" style="font-weight:bold; font-size:1.08em; margin-bottom:8px;">오늘의 명언</div>
-     <div class="quote-text"></div>
-     <div class="quote-author" style="margin-top:8px; color:#b48a00; font-size:0.98em;"></div>
-   </div>
-    </section>
-  <section class="intro">
-  <h2>*사이트 소개*</h2>
-  <p>
-    이 사이트는 컴퓨터공학 전공자들을 위한 취업 정보 공유 커뮤니티입니다.<br>
-    다양한 분야별 로드맵과 최신 채용 소식, 실전 준비 팁 등을 제공합니다.
-  </p>
- </section>
- <section class="notices">
-  <h2>📢 공지사항 & 채용 정보</h2>
-  <ul class="notice-list">
-    <li><a href="https://career.kakao.com/jobs" target="_blank">[채용] 카카오 신입 백엔드 개발자 모집 (~6/30)</a></li>
-    <li><a href="https://programmers.co.kr/competitions" target="_blank">[대회] 프로그래머스 코딩 테스트 챌린지 (~6/15)</a></li>
-    <li><a href="https://boostcamp.connect.or.kr" target="_blank">[교육] 부스트캠프 AI Tech 7기 모집 (~6/10)</a></li>
-  </ul>
- </section>
-    <!-- Q&A 미리보기 섹션 추가 -->
-<section class="qna-preview">
-  <div class="qna-header">
-    <!-- 카테고리 탭 추가 -->
-  <h2>Q&A</h2>
-  <select id="category" required>
-    <option value="">카테고리 선택</option>
-    <option value="전체">전체</option>
-    <option value="소프트웨어">소프트웨어</option>
-    <option value="데이터">데이터</option>
-    <option value="네트워크/보안">네트워크/보안</option>
-    <option value="인공지능">인공지능</option>
-  </select>
-  </div>
-  <!-- 카테고리별 Q&A 리스트 -->
-  <ul class="qna-list" id="qnaList">
-  </ul>
-</section>
-
-  <!-- 게시글 리스트 -->
-  <div id="postList"></div>
-<section class="recommended-books">
-  <h2>📚 추천 도서 & 자격증 서적</h2>
-  <div class="book-list">
-    <div class="book-item">
-      <img src="/images/cracking_coding_interview.jpg" alt="Cracking the Coding Interview">
-      <p><strong>코딩 인터뷰 완전 분석</strong><br>Gayle Laakmann McDowell</p>
-    </div>
-    <div class="book-item">
-      <img src="/images/practical_algorithm.jpg" alt="실전 알고리즘 문제 해결 전략">
-      <p><strong>실전 알고리즘 문제 해결 전략</strong><br>구종만</p>
-    </div>
-    <div class="book-item">
-      <img src="/images/information_processing.jpg" alt="정보처리기사 필기">
-      <p><strong>정보처리기사 필기 한권으로 끝내기</strong></p>
-    </div>
-    <div class="book-item">
-      <img src="/images/easy_c_language.jpg" alt="쉽게 배우는 C 언어">
-      <p><strong>쉽게 배우는 C 언어</strong><br>한빛아카데미</p>
-    </div>
-    <div class="book-item">
-      <img src="/images/network_basics.jpg" alt="네트워크 기초">
-      <p><strong>네트워크 기초</strong><br>한빛미디어</p>
-    </div>
-    <div class="book-item">
-      <img src="/images/sql_practice.jpg" alt="SQL 실습">
-      <p><strong>SQL 첫걸음</strong><br>이지스퍼블리싱</p>
-    </div>
-    <div class="book-item">
-      <img src="/images/aws_certification.jpg" alt="AWS 공인 솔루션스 아키텍트">
-      <p><strong>AWS 공인 솔루션스 아키텍트</strong><br>클라우드 아카데미</p>
-    </div>
-  </div>
-</section>
-</main>
-<script src="script.js"></script>
 </body>
 </html>
