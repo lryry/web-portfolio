@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>어제 본 이야기</title>
+    <link rel="shortcut icon" href="images/화분아이콘.png" type="image/png" />
+    <link rel="stylesheet" href="homes.css" />
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="header-left">
+        <img
+          class="header_logo_img"
+          src="images/화분아이콘.png"
+          alt="header_logo"
+        />
+        <a href="home.html">
+          <h1 class="header_logo_title">어제 본 이야기</h1>
+        </a>
+      </div>
+      <div class="header-right">
+        <audio controls controlsList="nodownload noplaybackrate" loop>
+          <source src="배경.mp3" type="audio/mpeg" />
+          브라우저가 오디오 태그를 지원하지 않습니다.
+        </audio>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <nav class="side-menu">
+        <ul>
+          <div class="home_logo">
+            <img
+              class="home_logo_img"
+              src="images/기본이미지.png"
+              alt="home_logo"
+            />
+            <h1 class="home_logo_title">Yeeun</h1>
+          </div>
+          <li><a href="#crime">범죄/스릴러</a></li>
+          <li><a href="#action">액션</a></li>
+          <li><a href="#history">역사</a></li>
+          <li><a href="#romance">로맨스/코미디</a></li>
+        </ul>
+      </nav>
+      <main class="main-content">
+        <div class="cards-row">
+          <div class="card-col" id="crime">
+            <h2>범죄/스릴러</h2>
+            <a href=".html" class="card-link">
+              <img src="images/추격자.jpg" alt="영화" class="card-image" />
+              <div class="card-text">추격자</div>
+            </a>
+            <div class="favorite-container">
+              <span
+                class="favorite-heart"
+                onclick="this.classList.toggle('active')"
+                >♡</span
+              >
+            </div>
+            <a href=".html" class="card-link">
+              <img src=".jpg" alt="영화" class="card-image" />
+              <div class="card-text">영화</div>
+            </a>
+            <div class="favorite-container">
+              <span
+                class="favorite-heart"
+                onclick="this.classList.toggle('active')"
+                >♡</span
+              >
+            </div>
+          </div>
+          <div class="card-col" id="action">
+            <h2>액션</h2>
+            <!-- 카드 내용 -->
+          </div>
+          <div class="card-col" id="history">
+            <h2>역사</h2>
+            <!-- 카드 내용 -->
+          </div>
+          <div class="card-col" id="romance">
+            <h2>로맨스/코미디</h2>
+            <!-- 카드 내용 -->
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- 푸터 -->
+    <footer class="footer">
+      <p>© 어제 본 이야기</p>
+    </footer>
+  </body>
+</html>

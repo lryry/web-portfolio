@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch HTML in Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "file": "c:/Users/82106/OneDrive/바탕 화면/2301376김예은/home.html"
+    }
+  ]
+}

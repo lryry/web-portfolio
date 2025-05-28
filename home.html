@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>어제 본 이야기</title>
+    <link rel="shortcut icon" href="images/화분아이콘.png" type="image/png" />
+    <link rel="stylesheet" href="homes.css" />
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="header-left">
+        <img
+          class="header_logo_img"
+          src="images/화분아이콘.png"
+          alt="header_logo"
+        />
+        <h1 href="home.html" class="header_logo_title">어제 본 이야기</h1>
+      </div>
+      <div class="header-right">
+        <audio controls controlsList="nodownload noplaybackrate" loop>
+          <source src="배경.mp3" type="audio/mpeg" />
+          브라우저가 오디오 태그를 지원하지 않습니다.
+        </audio>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <nav class="side-menu">
+        <ul>
+          <div class="home_logo">
+            <img
+              class="home_logo_img"
+              src="images/기본이미지.png"
+              alt="home_logo"
+            />
+            <h1 class="home_logo_title">Yeeun</h1>
+          </div>
+          <li><a href="movie.html">Movie</a></li>
+          <li><a href="drama.html">Drama</a></li>
+          <li><a href="anime.html">Anime</a></li>
+          <li><a href="pick.html">Your Picks</a></li>
+        </ul>
+      </nav>
+      <main class="main-content">
+        <div class="cards-row">
+          <div class="card-col">
+            <h2>Movie</h2>
+            <a href="movie.html" class="card-link">
+              <img src="images/추격자.jpg" alt="영화" class="card-image" />
+              <div class="card-text">추격자</div>
+            </a>
+            <div class="favorite-container">
+              <span
+                class="favorite-heart"
+                onclick="this.classList.toggle('active')"
+                >♡</span
+              >
+            </div>
+            <a href="movie.html" class="card-link">
+              <img src=".jpg" alt="영화" class="card-image" />
+              <div class="card-text">영화</div>
+            </a>
+            <div class="favorite-container">
+              <span
+                class="favorite-heart"
+                onclick="this.classList.toggle('active')"
+                >♡</span
+              >
+            </div>
+          </div>
+          <div class="card-divider"></div>
+          <div class="card-col">
+            <h2>Drama</h2>
+            <a href="drama.html" class="card-link">
+              <img
+                src="images/슬의생.jpg"
+                alt="슬기로운 의사생활"
+                class="card-image"
+              />
+              <div class="card-text">슬기로운 의사생활</div>
+            </a>
+            <a href="movie.html" class="card-link">
+              <img src=".jpg" alt="드라마" class="card-image" />
+              <div class="card-text">드라마</div>
+            </a>
+          </div>
+          <div class="card-divider"></div>
+          <div class="card-col">
+            <h2>Anime</h2>
+            <a href="anime.html" class="card-link">
+              <img
+                src="images/엘리멘탈.png"
+                alt="애니메이션"
+                class="card-image"
+              />
+              <div class="card-text">엘리멘탈</div>
+            </a>
+            <a href="movie.html" class="card-link">
+              <img src=".jpg" alt="애니메이션" class="card-image" />
+              <div class="card-text">애니메이션</div>
+            </a>
+          </div>
+          <div class="card-divider"></div>
+          <div class="card-col">
+            <h2>Your Picks</h2>
+            <a href="pick.html" class="card-link">
+              <img src="images/폭싹.jpg" alt="친구추천" class="card-image" />
+              <div class="card-text">폭싹 속았수다</div>
+            </a>
+            <a href="movie.html" class="card-link">
+              <img src=".jpg" alt="이웃 추천" class="card-image" />
+              <div class="card-text">이웃 추천</div>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- 푸터 -->
+    <footer class="footer">
+      <p>© 어제 본 이야기</p>
+    </footer>
+  </body>
+</html>
