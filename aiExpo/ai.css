@@ -94,7 +94,7 @@ ol {
 .article-img-right {
     float: right;
     margin: 0 0 10px 10px;
-    width: 350px; /* 고정 크기 */
+    width: 350px;
     min-width: 350px;
     max-width: 350px;
 }
