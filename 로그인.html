@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인</title>
+  <link rel="stylesheet" href="css_stlye/login.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 왼쪽 사이드바 -->
+    <div class="sidebar">
+    
+      <!-- 왼쪽 파란 점 4개 -->
+      <div class="blue-dot dot-left-1"></div>
+      <div class="blue-dot dot-left-2"></div>
+      <div class="blue-dot dot-left-3"></div>
+      <div class="blue-dot dot-left-4"></div>
+    </div>
+    <!-- 오른쪽 내용 영역 -->
+    <div class="content">
+      <div class="dot-connector connector-1"></div>
+      <div class="dot-connector connector-2"></div>
+      <div class="dot-connector connector-3"></div>
+      <div class="dot-connector connector-4"></div>
+      <div class="blue-dot dot-right-1"></div>
+      <div class="blue-dot dot-right-2"></div>
+      <div class="blue-dot dot-right-3"></div>
+      <div class="blue-dot dot-right-4"></div>
+      <!-- 로그인 폼 (박스 없이 심플하게) -->
+      <form class="login-form-container">
+        <table class="login-form-table">
+          <tr>
+            <td style="text-align:center;" colspan="1">
+              <h2 style="margin:0 0 18px 0; color:#174642; font-size:2.2rem;">로그인</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" placeholder="ID">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="password" placeholder="Password">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" id="saveLogin">
+              <label for="saveLogin" style="font-size:14px; color:#174642; margin-left:6px;">로그인 정보 저장</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="submit" value="Sign in"
+                onclick="alert('로그인 성공!')">
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">
+              <a href="회원가입.html" style="font-size:13px;color:#06a4f9;text-decoration:none;">회원가입</a>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <!-- 오른쪽 추가 영역 -->
+    <div class="side-area">
+    </div>
+  </div>
+</body>
+</html>
