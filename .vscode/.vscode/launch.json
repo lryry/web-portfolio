@@ -1,0 +1,14 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+	  {
+		"type": "chrome",
+		"request": "launch",
+		"name": "Open 1.html",
+		"runtimeExecutable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",  // Chrome 경로
+		"args": [
+  "file:///c:/웹프/.vscode/portfolio/1.html"]
+	  }
+	]
+  }
+  

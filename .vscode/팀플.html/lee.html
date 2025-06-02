@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>이준형</title>
+  <link rel="stylesheet" type="text/css" href="lee.css">
+  <style>
+    body {
+      background-image: url(bg.jpg);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      /* background-color: #333; */
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .menu {
+      text-align: center;
+    }
+
+    nav ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    nav li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    .celebrity-container {
+      display: flex;
+      align-items: center;
+      margin: 20px;
+    }
+
+    .celebrity-image {
+      width: 200px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .album-image{
+        width:200px;
+        height:200px;
+        border-radius:4px
+    }
+
+    .celebrity-info {
+      flex: 1;
+    }
+
+    .song-list ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      white-space: nowrap;
+      overflow-x: scroll;
+    }
+
+    .song-list ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .song-list li {
+      flex: 0 1 calc(10% - 20px);
+      width: 230px;
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #ffffff80;
+      text-align: center;
+      border-radius: 6px;
+      white-space: normal;
+    }
+
+    .song-info {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .song-info p {
+      margin: 5px 0;
+    }
+
+    .song-details {
+      padding: 10px;
+    }
+
+    h1{
+      font-family:"Comic Sans MS", Serif;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html">HIDDEN SINGER</a></h1> 
+              <hr>
+              <div class="menu" >
+                  <nav class="clearfix">
+                      <ul class="clearfix">
+                          <li><a href="index.html">Home</a></li>
+                          <li>
+                              <div class="dropdown">
+                                <button type="button" onclick="location.href='Artist.html' ">Artist</button>
+                                  <div class="dropdown-content">
+                                    <a href="ALEPH.html">ALEPH</a>
+                                    <a href="lucy.html">Lucy</a>
+                                    <a href="song.html">송하예</a>
+                                    <a href="lee.html">이준형</a>
+                                  </div>
+                              </div>
+                          </li>
+                          <!-- 드롭다운 버튼 -->
+                          <li>
+                              <div class="dropdown">
+                                  <button class="dropbtn">KR</button>
+                                  <div class="dropdown-content">
+                                  <a href="#">EN</a>
+                                  </div>
+                              </div>
+                          </li>
+                      </ul>
+                  </nav>
+              </div>
+      </header>
+    
+      <div class="celebrity-container">
+        <img class="celebrity-image" src="lee.jpeg" alt="연예인 이미지">
+        <div class="celebrity-info">
+            <h2>이준형</h2>
+            <p><strong>출생:</strong> 1998.07.11. 서울특별시</p>
+            <p><strong>소속 그룹:</strong> 유다빈 밴드</p>
+            <p><strong>데뷔:</strong> 2019.10.10 EP 앨범 [Monologue]</p>
+            <p><strong>MBTI:</strong> INFJ</p>
+            <a href="https://www.instagram.com/ruen14/">
+            <img src="insta.png" alt="인스타" height="30" width="30"></a>
+            <a href="https://www.youtube.com/channel/UCNnk64lsDN2wSFCYFEOJ4WA">
+            <img src="youtube.png" alt="유튜브" height="30" width="30"></a>
+        </div>
+    </div>
+    <hr>
+    <div class="song-list">
+        <ul>
+            <li>
+                <img class="album-image" src="이글루.jpg" alt="#">
+                <br>
+                이글루
+                <hr>
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>발매-2019.12.12.<br>
+                        장르-인디, 록<br>
+                        작곡-이준형<br>
+                        작사-이준형<br>
+                        편곡-이준형
+                    </p>
+                </details>
+            </li>
+
+            <li>
+                <img class="album-image" src="꽃밭.jpg" alt="#">
+                <br>
+                꽃밭
+                <hr>"아름다운 짝사랑 노래입니다."
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>발매-2019.10.10<br>
+                        장르-록/포크(국내)<br>
+                        작곡-이준형<br>
+                        작사-이준형<br>
+                        편곡-이준형, Hanonn
+                    </p>
+                </details>
+            </li>
+    
+            <li>
+                <img class="album-image" src="꽃밭.jpg" alt="#">
+                <br>
+                Monologue
+                <hr>"낙엽이 지는 가을의 끝에서 외로움을 노래합니다."
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>
+                        발매-2019.10.10.<br>
+                        장르-록/포크(국내)<br>
+                        작곡-이준형<br>
+                        작사-이준형<br>
+                        편곡-이준형, Hanonn
+                    </p>
+                </details>
+            </li>
+    
+    
+            <li>
+                <img class="album-image" src="꽃밭.jpg" alt="#">
+                <br>
+                Fly away
+                <hr>"실패로 인해 넘어진 우리 모두가 아픔을 딛고 저 멀리 날아가기를 염원합니다."
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>
+                        발매-2019.10.10.<br>
+                        장르-록/포크(국내)<br>
+                        작곡-이준형<br>
+                        작사-이준형<br>
+                        편곡-이준형, Hanonn
+                    </p>
+                </details>
+            </li>
+
+    
+    
+            <li>
+                <img class="album-image" src="유토피아.jpg" alt="#">
+                <br>
+                UTOPIA
+                <hr>"내가 잠이 와도 슬픔이 와도 넌 늘 내게로 찾아와"
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>
+                        발매-2022.09.15.<br>
+                        장르-록/포크(국내)<br>
+                        작곡-이준형<br>
+                        작사-이준형<br>
+                        편곡-이준형
+                    </p>
+                </details>
+            </li>
+    
+    
+            <li>
+                <img class="album-image" src="유토피아.jpg" alt="#">
+                <br>
+                Sleep
+                <hr>"잠에 들지 않는 밤, 나는 잠에 닿기를 간절히 소망했다."
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>
+                        발매-2022.09.15.<br>
+                        장르-록/포크(국내)<br>
+                        작곡-이준형<br>
+                        작사-이준형<br>
+                        편곡-이준형
+                    </p>
+                </details>
+            </li>
+
+    
+    
+            <li>
+                <img class="album-image" src="유토피아.jpg" alt="#">
+                <br>
+                아이
+                <hr>몸만 자라난 어른에 대한 이야기.
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>
+                        발매-2022.09.15.<br>
+                        장르-록/포크(국내)<br>
+                        작곡-이준형<br>
+                        작사-이준형<br>
+                        편곡-이준형
+                    </p>
+                </details>
+            </li>
+
+    
+    
+            <li>
+                <img class="album-image" src="함께할수있기를.jpg" alt="#">
+                <br>
+                함께할 수 있기를<hr>
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>
+                        발매-2022.04.16.<br>
+                        장르-OST<br>
+                        작곡-제인스, Naiv<br>
+                        작사-제인스<br>
+                        편곡-제인스
+                    </p>
+                </details>
+            </li>
+
+    
+    
+            <li>
+                <img class="album-image" src="summer.jpg" alt="#">
+                <br>
+                Summer!<hr>
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>
+                        발매-2023.08.13.<br>
+                        장르-인디<br>
+                        작곡-이준형<br>
+                        작사-이준형<br>
+                        편곡-이준형
+                    </p>
+                </details>
+            </li>
+
+    
+    
+            <li>
+                <img class="album-image" src="꽃밭.jpg" alt="#">
+                <br>
+                을왕리<hr>
+                <details class="song-info">
+                    <summary>곡 정보</summary>
+                    <p>
+                        발매-2021.01.11.<br>
+                        장르-록/포크(국내)<br>
+                        작곡-이준형<br>
+                        작사-이준형<br>
+                        편곡-이준형
+                    </p>
+                </details>
+            </li>
+
+        </ul>
+    </div>
+</body>
+</html>
+

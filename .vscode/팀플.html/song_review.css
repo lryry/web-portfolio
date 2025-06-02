@@ -1,0 +1,8 @@
+/* 별 그림 스타일 */
+.star {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('star.png'); /* 별 이미지의 경로를 지정해주세요 */
+  background-size: contain;
+}

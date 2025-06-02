@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>간단한 번역</title>
+    <script>
+        function translateText() {
+            // 번역에 사용할 API 엔드포인트 URL
+            const apiEndpoint = 'https://translation.googleapis.com/language/translate/v2';
+
+            // 사용할 API 키
+            const apiKey = 'YOUR_API_KEY'; // 여기에 자신의 Google Cloud Translation API 키를 넣어주세요.
+
+            // 번역할 텍스트
+            const textToTranslate = document.getElementById('textToTranslate').value;
+
+            // 선택한 언어
+            const targetLanguage = document.getElementById('targetLanguage').value;
+
+            // 번역 요청을 보냅니다.
+            fetch(`${apiEndpoint}?key=${apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    q: textToTranslate,
+                    target: targetLanguage,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const translatedText = data.data.translations[0].translatedText;
+                document.getElementById('result').innerHTML = translatedText; // 번역된 텍스트를 화면에 출력합니다.
+            })
+            .catch(error => {
+                console.error('번역 오류:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>간단한 번역 페이지</h1>
+    <textarea id="textToTranslate" rows="4" cols="50"></textarea><br>
+    <label for="targetLanguage">번역할 언어 선택:</label>
+    <select id="targetLanguage">
+        <option value="en">영어</option>
+        <option value="es">스페인어</option>
+        <!-- 다른 언어 옵션들을 추가할 수 있습니다 -->
+    </select><br>
+    <button onclick="translateText()">번역하기</button><br><br>
+    <div id="result"></div> <!-- 번역 결과가 여기에 표시됩니다 -->
+</body>
+</html>

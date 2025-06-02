@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIDDEN SINGER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+                            integrity="sha384-GLhlTQ8iN17zMcvrM5VHEXPpFIIJ6MRwuL8t2QF+PXRn0CKOep9EkPUE1g6I8f3O" 
+                            crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #video-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .video {
+            width: 100vw;
+            height: 120vh;
+            object-fit: cover;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 78%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 55px;
+            font-family: 'Abril Fatface', serif;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+
+<div id="video-container">
+    <div class="video-wrapper">
+        <!--이준형-->
+        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+            <video class="video" controls autoplay muted loop>
+                <source src="알레프.mp4" type="video/mp4">
+            </video>
+            <div class="text-overlay">ALEPH</div>
+        </div>
+        <!--알레프-->
+        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+            <video class="video" controls autoplay muted loop>
+                <source src="이준형.mp4" type="video/mp4">
+            </video>
+            <div class="text-overlay">LEE JUN HYUNG</div>
+        </div>
+        <!--루시-->
+        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+            <video class="video" controls autoplay muted loop>
+                <source src="루시.mp4" type="video/mp4">
+            </video>
+            <div class="text-overlay">LUCY</div>
+        </div>
+        <!--송하예-->
+        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+            <video class="video" controls autoplay muted loop>
+                <source src="송하예.mp4" type="video/mp4">
+            </video>
+            <div class="text-overlay">SONG HA YEA</div>
+        </div>
+    </div>
+    <button class="prev" onclick="changeVideo(-1)">❮</button>
+    <button class="next" onclick="changeVideo(1)">❯</button>
+</div>
+
+<script>
+    var videoWrapper = document.querySelector('.video-wrapper');
+    var currentIndex = 0;
+
+    function changeVideo(direction) {
+        var videos = document.querySelectorAll('.video');
+        currentIndex += direction;
+
+        if (currentIndex < 0) {
+            currentIndex = videos.length - 1;
+        } else if (currentIndex >= videos.length) {
+            currentIndex = 0;
+        }
+
+        videoWrapper.style.transform = 'translateX(' + (-currentIndex * 100) + 'vw)';
+    }
+</script>
+</body>
+</html>

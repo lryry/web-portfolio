@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS 스타일 */
+    .celebrity-container {
+      display: flex;
+    }
+    .celebrity-image {
+      max-width: 20%;
+    }
+    .celebrity-info {
+      flex: 1;
+      padding: 20px;
+    }
+    .song-list {
+      margin-top: 20px;
+    }
+    body {
+      background-image: url(bg.jpg);
+    }
+    .star {
+      width: 40px; /* 별 이미지 크기 조절 */
+      cursor: pointer;
+    }
+  </style>
+  <title>Song Review</title>
+</head>
+<body>
+  <h1>송하예 - Stay With Me</h1>
+  
+  <h2>감상평 작성</h2>
+  
+  <form id="reviewForm">
+    <label for="nickname">닉네임:</label><br>
+    <input type="text" id="nickname" name="nickname" placeholder="익명의 사용자"><br>
+    <label for="comment">감상평:</label><br>
+    <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+    <label for="rating">별점:</label>
+    <div id="stars-input"></div>
+    <input type="hidden" id="rating" name="rating">
+    <input type="button" value="입력" onclick="submitReview()">
+  </form>
+
+  <div id="reviews">
+    <!-- 감상평이 표시될 영역 -->
+  </div>
+
+  <script>
+    // 저장된 감상평을 로드하여 화면에 표시하는 함수
+    function loadReviews() {
+      const reviewsContainer = document.getElementById('reviews');
+      reviewsContainer.innerHTML = ''; // 기존 내용 초기화
+
+      const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+      savedReviews.forEach(review => {
+        const reviewElement = document.createElement('div');
+        reviewElement.innerHTML = `<p><strong>닉네임:</strong> ${review.nickname}<br><strong>감상평:</strong> ${review.comment}<br><strong>별점:</strong>`;
+
+        // 이미지로 별점 표시
+        for (let i = 0; i < review.rating; i++) {
+          const starImage = document.createElement('img');
+          starImage.src = 'star.png'; // 별 이미지의 경로
+          starImage.style.width = '20px'; // 이미지 크기 조절 (선택사항)
+          reviewElement.appendChild(starImage);
+        }
+
+        reviewElement.innerHTML += ` ${review.rating}점</p><hr>`;
+        reviewsContainer.appendChild(reviewElement);
+      });
+    }
+
+    // 페이지 로드 시 저장된 감상평을 불러와서 표시
+    window.onload = function() {
+      loadReviews();
+    };
+
+    // 별점 입력을 받아오는 함수
+    function showStarsInput(rating) {
+      const starContainer = document.getElementById('stars-input');
+      starContainer.innerHTML = '';
+
+      for (let i = 1; i <= 5; i++) {
+        const star = document.createElement('img');
+        star.src = i <= rating ? 'star.png' : 'star2.png';
+        star.width = 40;
+        star.classList.add('star'); // CSS 클래스 추가
+        starContainer.appendChild(star);
+        star.onclick = function() {
+          document.getElementById('rating').value = i;
+          showStarsInput(i);
+        }
+      }
+    }
+
+    // 감상평을 로컬 스토리지에 저장하는 함수
+    function submitReview() {
+      const nickname = document.getElementById('nickname').value || '익명';
+      const comment = document.getElementById('comment').value;
+      const rating = document.getElementById('rating').value;
+      
+      // 기존에 저장된 감상평 가져오기
+      const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+      // 새로운 감상평 객체 생성
+      const newReview = { nickname, comment, rating };
+
+      // 새로운 감상평을 기존 리스트에 추가
+      savedReviews.push(newReview);
+
+      // 로컬 스토리지에 감상평 리스트 저장
+      localStorage.setItem('reviews', JSON.stringify(savedReviews));
+
+      // 입력값 초기화하고 감상평 다시 불러오기
+      document.getElementById('comment').value = '';
+      document.getElementById('rating').value = '';
+      loadReviews();
+    }
+
+    showStarsInput(0); // 초기 별점 표시
+  </script>
+</body>
+</html>
